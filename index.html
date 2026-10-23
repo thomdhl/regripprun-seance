@@ -269,6 +269,16 @@ nav.tabs button[aria-current="page"]::before{content:"";position:absolute;top:0;
 .ttile:hover,.ztile:hover,.perso:hover{border-color:var(--lane)}
 .ztiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
 .ztile{display:flex;align-items:center;gap:10px;min-height:64px;padding:10px 12px;border-radius:18px;background:var(--surface);border:2px solid var(--line);font-weight:800;text-align:left;line-height:1.2}
+.ztile[aria-pressed="true"]{background:var(--lane);border-color:var(--lane);color:var(--lane-ink)}
+.ztile[aria-pressed="true"] .zi{background:var(--lane-ink)}
+.ztile[aria-pressed="true"]::after{content:"✓";margin-left:auto;font-weight:800}
+.mixbar{margin-top:12px;background:var(--surface);border:2px solid var(--lane);border-radius:20px;padding:14px;display:flex;flex-direction:column;gap:12px}
+.mixsum{margin:0}
+.mixdur{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;font-weight:800}
+.seg{display:inline-flex;border:2px solid var(--ink);border-radius:999px;overflow:hidden}
+.seg button{border:0;background:var(--surface);padding:8px 14px;font-weight:800;min-height:44px}
+.seg button + button{border-left:1px solid var(--line)}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
 .zi{width:40px;height:40px;border-radius:50%;background:var(--lane-soft);display:grid;place-items:center;flex:none}
 .zi svg{width:22px;height:22px;stroke:var(--lane);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 .perso{display:flex;align-items:center;gap:12px;width:100%;text-align:left;padding:14px 16px;border-radius:20px;border:2px dashed var(--muted);background:none}
@@ -290,6 +300,41 @@ nav.tabs button[aria-current="page"]::before{content:"";position:absolute;top:0;
 .modal-box .field{margin-bottom:16px}
 .modal-box .row{justify-content:flex-end}
 .btn.danger-fill{background:var(--warn);border-color:var(--warn);color:var(--paper)}
+.illus .fig,.illus .head,.illus .db,.illus .band{display:none}
+.ill{fill:none;stroke:var(--ink);stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
+.ill .arch{stroke:var(--lane);stroke-width:6}
+.ill .arrow{stroke:var(--band);stroke-width:3}
+[data-ph]{transition:opacity .35s}
+.how-d h4{font-family:"Fredoka",sans-serif;font-weight:600;font-size:1.05rem;margin:16px 0 6px}
+.feel [aria-pressed="true"]{background:var(--lane);border-color:var(--lane);color:var(--lane-ink)}
+.feelmsg{max-width:380px;margin:12px auto 0;font-weight:600}
+.feelmsg .btn{margin-top:10px}
+.onb{position:fixed;inset:0;z-index:150;background:var(--paper);overflow:auto;padding:calc(12px + env(safe-area-inset-top,0px)) 18px calc(18px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column}
+.onb-top{display:flex;align-items:center;gap:12px;max-width:560px;width:100%;margin:0 auto;min-height:48px}
+.onb-top .grow{flex:1;min-width:0}
+.onb-top .lbl{font-weight:800;font-size:.9rem}
+.onb-top .bar{height:10px;border-radius:999px;background:var(--line);overflow:hidden;margin-top:4px}
+.onb-top .bar i{display:block;height:100%;background:var(--lane);border-radius:999px}
+.onb-body{flex:1;display:flex;flex-direction:column;gap:16px;max-width:560px;width:100%;margin:0 auto;padding-top:20px}
+.onb-body h2{font-size:clamp(1.7rem,6.5vw,2.2rem)}
+.onb-body h2:focus{outline:none}
+.onb-body p{margin:0}
+.onb-hero{text-align:center}
+.onb-hero img{width:150px;height:150px;margin-bottom:10px}
+.onb-hero p{margin-top:8px}
+.onb-list{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.onb-list li{display:grid;grid-template-columns:48px 1fr;gap:12px;align-items:center;background:var(--surface);border:2px solid var(--line);border-radius:18px;padding:12px 14px}
+.onb-list .zi{width:48px;height:48px}
+.onb-list .zi svg{width:24px;height:24px}
+.onb-list b{display:block;line-height:1.25}
+.onb-list small{display:block;color:var(--muted);font-weight:600;font-size:.93rem;line-height:1.35;margin-top:2px}
+.onb-actions{margin-top:auto;display:grid;gap:10px;padding-top:8px}
+.onb .btn .sub{display:block;font-size:.85rem;font-weight:700;opacity:.9;margin-top:2px}
+.onb .btn.big{flex-direction:column;gap:0}
+.onb .tipbox summary{font-weight:800;color:var(--lane);cursor:pointer;min-height:44px;display:flex;align-items:center}
+.onb .lab{margin-bottom:8px}
+.onb .seg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));width:100%}
+.onb .seg button{font-size:1.1rem}
 @media (prefers-reduced-motion: reduce){ *{transition:none!important;scroll-behavior:auto!important} }
 </style>
 </head>
@@ -3394,7 +3439,7 @@ const WORDS = [
 const CAT_MAP = {"Bas du corps":"Jambes et fesses","Haut du corps":"Haut du corps","Gainage et abdos":"Ventre et gainage","Cardio":"Cardio","Mobilité":"Étirements"};
 const CATS2 = ["Jambes et fesses","Haut du corps","Ventre et gainage","Cardio","Étirements"];
 const ZONE_MAP = {Cuisses:"Jambes",Fessiers:"Fesses",Mollets:"Mollets",Pectoraux:"Poitrine",Dos:"Dos","Épaules":"Épaules",Bras:"Bras",Abdos:"Ventre",Cardio:"Souffle (cardio)","Mobilité":"Souplesse"};
-const ZONES2 = ["Jambes","Fesses","Mollets","Ventre","Dos","Poitrine","Épaules","Bras","Souffle (cardio)","Souplesse"];
+const ZONES2 = ["Jambes","Fesses","Mollets","Pieds","Ventre","Dos","Poitrine","Épaules","Bras","Souffle (cardio)","Souplesse"];
 const GEAR_CHIPS = [["Haltères","Haltères ou bouteilles d’eau"],["Élastique","Élastique"],["Kettlebell","Kettlebell"],["Chaise ou banc","Chaise ou banc"],["Table","Table solide"],["Serviette","Serviette"],["Barre de traction","Barre de traction"],["Corde à sauter","Corde à sauter"]];
 const FREE = ["Sans matériel","Mur"];
 const DIFF = {"Débutant":"Facile","Intermédiaire":"Moyen","Avancé":"Difficile"};
@@ -3414,16 +3459,163 @@ const VAR = {
 };
 const PROGRAMS = [
  {id:"debut",name:"Je débute",desc:"Tout le corps en douceur, sans matériel. Le bon choix pour commencer.",items:["squat","pompesmur","pont","birddog","fentearr","planche"]},
- {id:"coureur",name:"Spécial coureur",desc:"Jambes solides, chevilles stables et ventre gainé pour courir mieux et se blesser moins.",items:["fentearr","rdluni","mollets","pontuni","lateral","deadbug"]},
+ {id:"coureur",name:"Spécial coureur",desc:"Les exercices clés de la prévention : tendon d’Achille, genoux, hanches et bas du dos.",items:["dropdown","stepdown","pont","lateral","curlup","birddog"]},
+ {id:"trail",name:"Spécial trail : descentes",desc:"Descentes lentes, genoux solides et chevilles stables pour les sentiers.",items:["squattempo","fentearr","stepdown","dropdown","equilibre","sautslat"]},
+ {id:"mollets",name:"Mollets et pieds",desc:"Une micro-séance d’une dizaine de minutes à glisser 2 à 3 fois par semaine, par exemple après un footing.",items:["dropdown","soleaire","shortfoot","equilibre"],warm:false,cool:false},
+ {id:"dos",name:"Dos solide",desc:"Les trois exercices de gainage de McGill, doux pour le dos, avec le pont des fesses.",items:["curlup","lateral","birddog","pont"]},
  {id:"ventre",name:"Ventre express",desc:"Quelques minutes pour renforcer le ventre et le dos.",items:["planche","deadbug","velo","lateral","ours"]},
  {id:"jambes",name:"Jambes et fesses",desc:"Des cuisses et des fessiers plus forts, sans matériel.",items:["squat","fentearr","pont","abductdebout","chaise","mollets"]},
  {id:"haut",name:"Haut du corps avec une chaise",desc:"Bras, épaules, dos et poitrine avec une simple chaise.",items:["pompesincl","dips","superman","plancheup","pompesgenoux"]},
  {id:"halteres",name:"Avec des haltères",desc:"Tout le corps avec deux haltères, ou deux bouteilles d’eau pleines.",items:["goblet","rdl","rowing","militaire","curl","floorpress"]},
  {id:"cardio",name:"Cardio à la maison",desc:"Faire monter le cœur et transpirer sans sortir.",items:["jj","genoux","squatjump","mountain","talons","boxing"]},
- {id:"etirements",name:"Étirements après la course",desc:"Un moment au calme pour récupérer après une sortie.",items:["psoas","quadri","ischios","chien","enfant","squatprofond"],calm:true}
+ {id:"etirements",name:"Étirements après la course",desc:"Un moment au calme pour récupérer après une sortie. Étirements lents d’environ 30 secondes.",items:["psoas","quadri","ischios","chien","enfant","squatprofond"],calm:true}
 ];
 const WARM = [["genoux",30],["talons",30],["squat",30],["jj",30]];
 const COOL = [["quadri",20],["ischios",30],["enfant",30]];
+
+/* ===================== Ajouts : prévention du coureur ===================== */
+PROPS.sofa = '<rect class="prop" x="-10" y="128" width="40" height="36" rx="6"/><line class="prop-line" x1="-4" y1="164" x2="-4" y2="181"/><line class="prop-line" x1="10" y1="164" x2="10" y2="181"/>';
+PROPS.line = '<line class="prop-line" x1="100" y1="172" x2="100" y2="190" style="stroke: var(--band)"/>';
+const ILLUS = {
+  foot: `<g class="ill"><path d="M62 18 L66 130"/><path d="M96 18 L94 128"/><path d="M66 130 C64 150 50 160 52 172 C53 180 60 181 72 181"/><path d="M94 128 C112 142 142 158 168 165 C182 169 186 178 176 181"/></g>
+    <g class="ill" data-ph="0"><path d="M72 181 L176 181"/></g>
+    <g class="ill" data-ph="1"><path class="arch" d="M72 181 C96 158 126 158 148 181 L176 181"/><path class="arrow" d="M110 180 L110 168 M105 173 L110 167 L115 173"/></g>`
+};
+const NEW_EX = [
+ {id:"dropdown",cat:"Jambes et fesses",name:"Descente du talon sur une marche",en:"Drop down",zones:["Mollets","Pieds"],gear:["Sans matériel"],equip:"Une marche d’escalier (tenez la rampe)",muscles:"Mollets, tendon d’Achille",diff:"Facile",dose:[15,"r",45,"par jambe"],props:"box",
+  protects:"Tendon d’Achille, mollets, voûte plantaire",kw:"excentrique mollet achille marche escalier periostite",
+  frames:[
+   {p:{a:["footL",[94,149]],t:180,lt:0,ls:0,rt:0,rs:0,la:30,lf:60,ra:30,rf:60,ft:40,rft:40},label:"Monter sur la pointe des deux pieds",hold:400,move:400},
+   {p:{rt:-10,rs:-70,rft:20},label:"Lever un pied",hold:200,move:3200},
+   {p:{a:["footL",[91.8,163.2]],ft:122},label:"Descendre lentement le talon sous la marche",hold:500,move:700}],
+  steps:["Debout sur une marche, seul l’avant des pieds en appui, une main sur la rampe.","Montez sur la pointe des deux pieds.","Levez un pied, puis descendez lentement le talon de l’autre sous le niveau de la marche, en 3 à 4 secondes.","Reposez l’autre pied pour remonter à deux pieds, et recommencez. Faites aussi une série genou légèrement fléchi, pour le muscle profond du mollet."],
+  errors:["Descendre trop vite : c’est la descente qui travaille","Remonter sur un seul pied (on remonte à deux)","Lâcher la rampe et perdre l’équilibre"],
+  breath:"Respirez calmement pendant la descente.",tip:"En prévention, une à trois séances par semaine suffisent. Plus difficile : avec un sac à dos lesté."},
+
+ {id:"stepdown",cat:"Jambes et fesses",name:"Descente contrôlée d’une marche",en:"Step down",zones:["Jambes","Fesses"],gear:["Sans matériel"],equip:"Une marche ou un step stable",muscles:"Avant des cuisses, fesses, contrôle du genou",diff:"Moyen",dose:[8,"r",60,"par jambe"],props:"box",
+  protects:"Genoux",kw:"genou rotule bandelette controle marche",
+  frames:[
+   {p:{a:["footL",[135,158]],t:180,lt:0,ls:0,rt:15,rs:10,la:60,lf:70,ft:90,rft:60},label:"Sur une jambe, au bord de la marche",hold:400,move:3200},
+   {p:{t:162,lt:70,ls:-35,rt:27,rs:28,la:80,lf:80},label:"Descendre lentement, genou dans l’axe",hold:200,move:1000}],
+  steps:["Debout sur une jambe au bord d’une marche, l’autre jambe dans le vide devant.","Descendez lentement, en 3 à 4 secondes, en pliant le genou d’appui jusqu’à effleurer le sol avec le talon libre.","Gardez le genou dans l’axe du pied, le bassin horizontal et le buste droit.","Remontez en poussant dans le pied d’appui."],
+  errors:["Genou qui rentre vers l’intérieur","Hanche qui tombe du côté de la jambe libre","Se laisser tomber au lieu de freiner"],
+  breath:"Inspirez en descendant, soufflez en remontant.",tip:"Faites-le face à un miroir : c’est le meilleur moyen de vérifier que le genou reste dans l’axe. Plus difficile : marche plus haute."},
+
+ {id:"soleaire",cat:"Jambes et fesses",name:"Mollets, genoux fléchis",en:"Soléaire",zones:["Mollets"],gear:["Sans matériel"],muscles:"Muscle profond du mollet (soléaire)",diff:"Facile",dose:[15,"r",45],
+  protects:"Tendon d’Achille, mollets",kw:"soleaire mollet achille",
+  frames:[
+   {p:{a:["footL",[100,178]],t:172,lt:35,ls:-20,la:70,lf:85,ft:90},label:"Genoux fléchis, talons au sol",hold:300,move:1300},
+   {p:{a:["footL",[100,171]],ft:55},label:"Monter sur la pointe des pieds, genoux toujours fléchis",hold:600,move:1500}],
+  steps:["Debout, genoux fléchis, mains contre un mur.","Gardez les genoux pliés pendant tout le mouvement.","Montez lentement sur la pointe des pieds, puis redescendez en contrôlant."],
+  errors:["Tendre les genoux en montant","Mouvement trop rapide"],
+  breath:"Soufflez en montant.",tip:"Plus difficile : sur une seule jambe, ou avec une charge."},
+
+ {id:"curlup",cat:"Ventre et gainage",name:"Petit relevé de buste de McGill",en:"Curl-up de McGill",zones:["Ventre","Dos"],gear:["Sans matériel"],muscles:"Ventre, gainage profond",diff:"Facile",dose:[5,"r",30],
+  protects:"Bas du dos",kw:"mcgill big three lombaires gainage",
+  frames:[
+   {p:{a:["hip",[110,172]],t:-90,h:-90,lt:90,ls:90,rt:135,rs:35,la:90,lf:90,ft:180,rft:90},label:"Allongé, une jambe pliée, mains sous le bas du dos",hold:600,move:900},
+   {p:{t:-99,h:-104},label:"Décoller à peine tête et épaules, tenir 8 à 10 secondes",hold:3000,move:900}],
+  steps:["Allongé sur le dos, une jambe pliée, l’autre tendue.","Glissez les mains sous le creux des reins pour garder la cambrure naturelle.","Décollez à peine la tête et les épaules, sans plier la nuque.","Tenez 8 à 10 secondes, redescendez, puis recommencez. Changez de jambe pliée à mi-séance."],
+  errors:["Monter trop haut, comme un relevé de buste classique","Rentrer le menton ou tirer sur la nuque","Écraser le bas du dos au sol"],
+  breath:"Respirez normalement pendant le maintien.",tip:"C’est l’un des trois exercices du « Big Three » de McGill, avec la planche sur le côté et les bras et jambe opposés à quatre pattes."},
+
+ {id:"pontchaise",cat:"Jambes et fesses",name:"Pont, pieds sur une chaise",en:"Pont ischios",zones:["Jambes","Fesses"],gear:["Chaise ou banc"],muscles:"Arrière des cuisses, fesses",diff:"Moyen",dose:[10,"r",60],props:"chairFront",
+  protects:"Arrière des cuisses",kw:"ischios ischio-jambiers pont",
+  frames:[
+   {p:{a:["footL",[140,140]],t:-90,h:-90,lt:115,ls:114,la:90,lf:90,ft:180},label:"Allongé, talons sur la chaise",hold:400,move:1100},
+   {p:{t:-75,lt:105,ls:105},label:"Monter le bassin, corps aligné",hold:800,move:1300}],
+  steps:["Allongé sur le dos, talons posés sur l’assise d’une chaise calée contre un mur.","Bras le long du corps.","Poussez dans les talons pour monter le bassin jusqu’à aligner épaules, hanches et genoux.","Redescendez lentement."],
+  errors:["Pousser avec la pointe des pieds","Cambrer le bas du dos","Chaise qui glisse"],
+  breath:"Soufflez en montant.",tip:"Plus difficile : sur une seule jambe."},
+
+ {id:"nordic",cat:"Jambes et fesses",name:"Chute avant contrôlée à genoux",en:"Nordic curl",zones:["Jambes"],gear:["Sans matériel"],equip:"Un canapé lourd ou un partenaire pour bloquer les chevilles, un coussin sous les genoux",muscles:"Arrière des cuisses",diff:"Difficile",dose:[5,"r",120],props:"sofa",
+  protects:"Arrière des cuisses (claquages)",kw:"nordic ischios excentrique",
+  frames:[
+   {p:{a:["kneeL",[70,176]],t:180,h:180,lt:0,ls:-90,la:20,lf:120,ft:-90},label:"À genoux, chevilles bloquées",hold:500,move:3500},
+   {p:{t:125,h:125,lt:-55,la:80,lf:60},label:"Basculer lentement, corps bien droit",hold:100,move:700},
+   {p:{t:115,h:115,lt:-65,la:40,lf:45},label:"Se rattraper avec les mains",hold:500,move:1200}],
+  steps:["À genoux sur un coussin, chevilles bloquées sous un canapé lourd ou tenues par un partenaire.","Corps droit des genoux à la tête, mains devant la poitrine.","Basculez vers l’avant le plus lentement possible, en freinant avec l’arrière des cuisses.","Rattrapez-vous avec les mains, puis repoussez pour revenir."],
+  errors:["Plier les hanches, fesses en arrière","Se laisser tomber d’un coup","Chevilles mal bloquées"],
+  breath:"Respirez calmement, ne bloquez pas.",tip:"Exercice exigeant : commencez par quelques répétitions, après plusieurs semaines de renforcement de base."},
+
+ {id:"squattempo",cat:"Jambes et fesses",name:"Squat lent",en:"Squat tempo",zones:["Jambes","Fesses"],gear:["Sans matériel"],opt:["Haltères","Kettlebell"],muscles:"Avant des cuisses, fesses",diff:"Moyen",dose:[8,"r",75],
+  protects:"Genoux, cuisses en descente de trail",kw:"tempo excentrique trail descente squat",
+  frames:[
+   {p:{a:["footL",[100,178]],t:180,lt:0,ls:0,la:90,lf:90},label:"Remonter de façon dynamique",hold:300,move:4000},
+   {p:{t:150,h:160,lt:95,ls:-25,la:80,lf:80},label:"Descendre lentement : 1, 2, 3, 4",hold:200,move:700}],
+  steps:["Pieds largeur d’épaules, bras tendus devant.","Descendez en comptant lentement jusqu’à 4.","Arrivé en bas, remontez de façon dynamique.","Gardez le dos droit et les talons au sol."],
+  errors:["Accélérer en fin de descente","Genoux qui rentrent vers l’intérieur"],
+  breath:"Inspirez pendant la descente, soufflez en remontant.",tip:"La descente lente imite le freinage des descentes en trail. Plus difficile : avec un poids contre la poitrine."},
+
+ {id:"equilibre",cat:"Jambes et fesses",name:"Équilibre sur une jambe",en:"Équilibre unipodal",zones:["Mollets","Pieds"],gear:["Sans matériel"],muscles:"Chevilles, pieds, stabilité",diff:"Facile",dose:[30,"t",15,"par jambe"],
+  protects:"Chevilles (entorses), terrain technique",kw:"proprioception cheville equilibre",
+  frames:[
+   {p:{a:["footL",[100,178]],t:180,h:180,lt:3,ls:-3,rt:75,rs:-5,la:-40,lf:-40,ra:40,rf:40},label:"Tenir sur une jambe, genou souple",hold:1200,move:1400},
+   {p:{t:177,h:178,rt:70,la:-35,ra:45},label:"Garder l’équilibre, bassin horizontal",hold:1200,move:1400}],
+  steps:["Debout sur une jambe, genou légèrement fléchi.","Gardez le bassin horizontal et le regard fixe devant vous.","Tenez sans poser l’autre pied, puis changez de jambe.","Plus difficile : yeux fermés, ou debout sur un coussin."],
+  errors:["Genou verrouillé","Hanche qui s’affaisse"],
+  breath:"Respirez calmement."},
+
+ {id:"sautsplace",cat:"Cardio",name:"Petits sauts sur place",en:"Pogo jumps",zones:["Mollets","Souffle (cardio)"],gear:["Sans matériel"],muscles:"Mollets, pieds, réactivité",diff:"Moyen",dose:[20,"r",60],
+  protects:"Chevilles, économie de course",kw:"pliometrie pogo rebonds",
+  frames:[
+   {p:{a:["footL",[100,174]],t:180,lt:0,ls:0,la:-15,lf:10,ft:50},label:"Petits sauts rapides sur l’avant des pieds",hold:60,move:200},
+   {p:{a:["footL",[100,163]],ft:30,la:-25,lf:0},label:"Petits sauts rapides sur l’avant des pieds",hold:60,move:200}],
+  steps:["Debout, pieds largeur de hanches.","Faites de petits sauts rapides sur l’avant des pieds, jambes presque tendues.","Restez le moins longtemps possible au sol.","Réception légère et silencieuse."],
+  errors:["Atterrir sur les talons","Plier beaucoup les genoux","Réception bruyante"],
+  breath:"Respiration régulière.",tip:"Les sauts s’ajoutent après quelques semaines de renforcement de base."},
+
+ {id:"sautsunijambe",cat:"Cardio",name:"Petits sauts sur une jambe",en:"Hops",zones:["Mollets","Jambes"],gear:["Sans matériel"],muscles:"Mollets, cuisses, stabilité",diff:"Difficile",dose:[10,"r",60,"par jambe"],
+  protects:"Chevilles, genoux",kw:"pliometrie hops unipodal",
+  frames:[
+   {p:{a:["footL",[100,174]],t:180,lt:0,ls:0,rt:20,rs:-80,la:-15,lf:10,ft:50,rft:-60},label:"Petits sauts sur une jambe",hold:60,move:220},
+   {p:{a:["footL",[100,164]],ft:30,la:-25,lf:0},label:"Petits sauts sur une jambe",hold:60,move:220}],
+  steps:["Debout sur une jambe, l’autre pliée derrière.","Faites de petits sauts sur place sur l’avant du pied.","Genou dans l’axe, bassin horizontal.","Réception souple et silencieuse, puis changez de jambe."],
+  errors:["Genou qui rentre à la réception","Sauter trop haut au début"],
+  breath:"Respiration régulière."},
+
+ {id:"sautslat",cat:"Cardio",name:"Sauts latéraux",en:"Lateral hops",zones:["Mollets","Jambes","Souffle (cardio)"],gear:["Sans matériel"],muscles:"Chevilles, cuisses, réactivité",diff:"Moyen",dose:[20,"r",45],view:"front",props:"line",
+  protects:"Chevilles sur terrain technique",kw:"pliometrie lateral cheville trail",
+  frames:[
+   {p:{a:["hip",[78,104]],t:180,h:180,lt:-4,ls:4,rt:6,rs:-2,la:-20,lf:-10,ra:20,rf:10,ft:-90,rft:90},label:"Réception d’un côté de la ligne",hold:80,move:220},
+   {p:{a:["hip",[100,90]],lt:-8,ls:8,rt:8,rs:-8},label:"Sauter par-dessus la ligne",hold:20,move:220},
+   {p:{a:["hip",[122,104]],lt:-6,ls:2,rt:4,rs:-4},label:"Réception de l’autre côté",hold:80,move:220},
+   {p:{a:["hip",[100,90]],lt:-8,ls:8,rt:8,rs:-8},label:"Sauter par-dessus la ligne",hold:20,move:220}],
+  steps:["Pieds joints, à côté d’une ligne au sol.","Sautez par-dessus la ligne sur le côté, puis revenez.","Réception sur l’avant des pieds, genoux souples.","Gardez un rythme régulier et le buste stable."],
+  errors:["Réception jambes raides","Regarder ses pieds"],
+  breath:"Respiration régulière."},
+
+ {id:"shortfoot",cat:"Jambes et fesses",name:"Raccourcir le pied",en:"Short foot",zones:["Pieds"],gear:["Sans matériel"],muscles:"Muscles du pied, voûte plantaire",diff:"Facile",dose:[10,"r",30],illus:"foot",
+  protects:"Pieds, voûte plantaire",kw:"pied voute plantaire doming intrinseques",
+  frames:[
+   {p:{a:["hip",[100,100]],t:180,lt:0,ls:0,la:0,lf:0},label:"Pied à plat, orteils détendus",hold:1500,move:300},
+   {p:{lt:1},label:"Creuser la voûte, orteils à plat, tenir 5 secondes",hold:2500,move:300}],
+  steps:["Assis, pied à plat au sol, orteils détendus.","Raccourcissez le pied en rapprochant l’avant du pied du talon : la voûte se creuse.","Les orteils restent à plat, sans se recroqueviller.","Tenez 5 secondes, relâchez. Plus difficile : debout, puis debout sur un pied."],
+  errors:["Plier les orteils en griffes","Soulever le talon ou l’avant du pied"],
+  breath:"Respirez normalement.",tip:"Un petit exercice à glisser n’importe quand, même assis au bureau."}
+];
+EX.push(...NEW_EX);
+
+/* Exercices existants : descente plus lente, consignes précisées */
+const TEMPO = {squat:[0,2200], goblet:[0,2500], fente:[0,3000], fentearr:[0,3000], fenteav:[0,3000], bulgare:[0,3000], stepup:[1,3000]};
+Object.entries(TEMPO).forEach(([id,[fi,ms]]) => {
+  const e = EX.find(x => x.id === id); if (!e) return;
+  e.frames = e.frames.map((f,i) => i === fi ? {...f, move:ms} : f);
+  e.steps = [...e.steps, "Prenez votre temps à la descente, 3 à 4 secondes, puis remontez plus vite."];
+});
+(e => { if (!e) return; e.steps = e.steps.map((s,i) => i === 1 ? "Poussez uniquement avec la jambe posée sur la marche, sans élan de la jambe restée au sol." : s); })(EX.find(x => x.id === "stepup"));
+(e => { if (!e) return; e.dose = [6,"r",45,"par côté"]; e.steps = e.steps.map(s => s.replace("Tenez 2 secondes", "Tenez 8 à 10 secondes"));
+  e.frames = e.frames.map((f,i) => (i === 1 || i === 3) ? {...f, hold:2500, label: f.label.replace(/$/, "")} : f); })(EX.find(x => x.id === "birddog"));
+(e => { if (e) e.tip = "Évitez d’étirer les mollets juste avant une sortie : gardez cet étirement pour le soir ou après la course."; })(EX.find(x => x.id === "chien"));
+const PROTECTS = {pont:"Genoux, bas du dos", pontuni:"Genoux, bassin", abductsol:"Genoux, hanches", abductdebout:"Genoux, hanches", lateral:"Hanches, bas du dos",
+  birddog:"Bas du dos", deadbug:"Bas du dos", mollets:"Mollets, chevilles", rdluni:"Chevilles, arrière des cuisses", fentearr:"Genoux", stepup:"Genoux",
+  bulgare:"Genoux", hipthrust:"Genoux, hanches", kickband:"Hanches", superman:"Bas du dos", legcurl:"Arrière des cuisses", fentelat:"Hanches", planche:"Bas du dos"};
+EX.forEach(e => { if (!e.protects && PROTECTS[e.id]) e.protects = PROTECTS[e.id]; });
+Object.assign(VAR, {
+  squat:["chaise","squattempo"], squattempo:["squat","squatjump"], mollets:[null,"dropdown"], dropdown:["mollets",null], soleaire:[null,"dropdown"],
+  stepdown:["pont","bulgare"], pontchaise:["pont","nordic"], nordic:["pontchaise",null], curlup:[null,"deadbug"], crunch:["curlup","velo"],
+  sautsplace:["corde","sautsunijambe"], sautsunijambe:["sautsplace",null], equilibre:[null,"rdluni"], sautslat:["jj","patineur"]
+});
 
 const fix = t => WORDS.reduce((s,[a,b]) => s.split(a).join(b), t);
 EX.forEach(e=>{
@@ -3467,7 +3659,7 @@ function recos(ex){
   return [[2, Math.max(4,Math.round(n*0.6)), rest],[3, n, rest],[4, Math.round(n*1.3), rest]];
 }
 const norm = s => s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/’/g,"'");
-EX.forEach(e => e._s = norm([e.name,e.en,e.muscles,e.cat,e.zones.join(" "),e.gear.join(" "),(e.opt||[]).join(" "),e.kw||""].join(" ")));
+EX.forEach(e => e._s = norm([e.name,e.en,e.muscles,e.cat,e.zones.join(" "),e.gear.join(" "),(e.opt||[]).join(" "),e.kw||"",e.protects||""].join(" ")));
 
 /* ===================== Moteur d’animation ===================== */
 const R = Math.PI/180;
@@ -3531,14 +3723,17 @@ class Fig {
     host.innerHTML = FIG_SVG + '<div class="phase"></div>';
     this.host = host; this.e = {};
     host.querySelectorAll("[data-k]").forEach(n => this.e[n.dataset.k] = n);
-    this.phaseEl = host.querySelector(".phase");
+    this.phaseEl = host.querySelector(".phase"); this.svg = host.querySelector("svg");
     this.kf = []; this.time = 0; this.total = 1; this.speed = reduceMotion ? .55 : 1; this.playing = true; this.label = "";
     FIGS.push(this);
   }
   set(ex){
     const e = this.e;
     this.kf = compile(ex); this.total = ex.frames.reduce((s,f)=>s+f.hold+f.move,0); this.time = 0; this.label = "";
-    e.props.innerHTML = ex.props ? PROPS[ex.props] : "";
+    e.props.innerHTML = ex.illus ? ILLUS[ex.illus] : ex.props ? PROPS[ex.props] : "";
+    this.svg.classList.toggle("illus", !!ex.illus);
+    this.ill = ex.illus ? [...e.props.querySelectorAll("[data-ph]")] : null;
+    this.labels = ex.frames.map(f => f.label);
     const front = ex.view === "front";
     e.farLeg.classList.toggle("far", !front); e.farArm.classList.toggle("far", !front);
     e.dbL.style.display = ex.hand ? "" : "none";
@@ -3567,7 +3762,10 @@ class Fig {
       const b=[P.footR[0]+(P.kneeR[0]-P.footR[0])*.15, P.footR[1]+(P.kneeR[1]-P.footR[1])*.15];
       e.bandL.setAttribute("points",P2([a,b]));
     }
-    if (label !== this.label){ this.label = label; this.phaseEl.textContent = label; }
+    if (label !== this.label){
+      this.label = label; this.phaseEl.textContent = label;
+      if (this.ill){ const i = this.labels.indexOf(label); this.ill.forEach(g => g.style.opacity = +g.dataset.ph === i ? 1 : 0); }
+    }
   }
 }
 let lastT = 0;
@@ -3585,7 +3783,7 @@ requestAnimationFrame(loop);
 /* ===================== État et sauvegarde ===================== */
 const KEY = "regripprun-seance-v2";
 const dayNum = (d = new Date()) => Math.floor(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()) / 86400000);
-const DEFAULTS = () => ({items:[], level:null, owned:[], warm:true, cool:true, done:0, last:null, name:"", goal:3, hist:[], noInstall:false});
+const DEFAULTS = () => ({items:[], level:null, owned:[], warm:true, cool:true, done:0, last:null, name:"", goal:3, hist:[], noInstall:false, onboarded:false});
 const S = DEFAULTS();
 try { Object.assign(S, JSON.parse(localStorage.getItem(KEY)) || {}); S.items = (S.items||[]).filter(i=>BY_ID[i.id]); } catch(e){}
 if (!Array.isArray(S.hist)) S.hist = [];
@@ -3663,13 +3861,119 @@ const SVG = {
   fig:'<svg class="hero-fig" viewBox="0 0 130 150" aria-hidden="true"><circle cx="78" cy="22" r="12"/><path d="M74 36L66 82L100 90L104 132"/><path d="M66 82L36 110L14 108"/><path d="M72 48L104 58"/><path d="M72 48L46 70"/></svg>'
 };
 const ZT = [
-  ["ventre","Ventre",'<rect x="7" y="4" width="10" height="16" rx="4"/><path d="M7 10h10M7 14h10M12 4v16"/>'],
-  ["jambes","Jambes et fesses",'<path d="M9 3v8l-2 10M15 3v8l2 10M9 11h6"/>'],
-  ["haut","Haut du corps",'<path d="M4 9l4-3h8l4 3-2 3-2-1v9H8v-9l-2 1z"/>'],
-  ["cardio","Cardio",'<path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/>'],
-  ["etirements","Étirements",'<circle cx="12" cy="5" r="2"/><path d="M4 9l8 2 8-2M12 11v4l-4 6M12 15l4 6"/>'],
-  ["debut","Tout le corps",'<circle cx="12" cy="5" r="2"/><path d="M12 7v7M6 10l6 2 6-2M9 21l3-7 3 7"/>']
+  ["ventre","Ventre",'<rect x="7" y="4" width="10" height="16" rx="4"/><path d="M7 10h10M7 14h10M12 4v16"/>', e => e.zones.includes("Ventre") && e.cat !== "Cardio"],
+  ["jambes","Jambes et fesses",'<path d="M9 3v8l-2 10M15 3v8l2 10M9 11h6"/>', e => e.cat === "Jambes et fesses"],
+  ["haut","Haut du corps",'<path d="M4 9l4-3h8l4 3-2 3-2-1v9H8v-9l-2 1z"/>', e => e.cat === "Haut du corps" && ["Poitrine","Épaules","Bras"].some(z => e.zones.includes(z))],
+  ["dos","Dos",'<path d="M12 3v18"/><path d="M8.5 6h7M8 10h8M8 14h8M8.5 18h7"/>', e => e.zones.includes("Dos") && e.cat !== "Étirements"],
+  ["cardio","Cardio",'<path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/>', e => e.cat === "Cardio"],
+  ["etirements","Étirements",'<circle cx="12" cy="5" r="2"/><path d="M4 9l8 2 8-2M12 11v4l-4 6M12 15l4 6"/>', e => e.cat === "Étirements"]
 ];
+/* Séance mélangée à partir de plusieurs parties du corps */
+const MIX_FREE = ["Sans matériel","Mur","Chaise ou banc"];
+const DIFF_OK = [["Facile"],["Facile","Moyen"],["Facile","Moyen","Difficile"]];
+const MIX_PLAN = {10:[5,2], 20:[6,3], 30:[8,3]};
+const shuffle = a => { a = a.slice(); for (let i=a.length-1;i>0;i--){ const j = Math.floor(Math.random()*(i+1)); [a[i],a[j]] = [a[j],a[i]]; } return a; };
+const canDo = e => e.gear.some(g => MIX_FREE.includes(g) || (S.owned||[]).includes(g));
+const mixSel = () => (S.mixSel || []).filter(z => ZT.some(t => t[0] === z));
+const mixDur = () => [10,20,30].includes(S.mixDur) ? S.mixDur : 20;
+const mixLabel = (zones, kind = "work") => zones.map(z => (kind === "protect" ? PT : ZT).find(t => t[0] === z)[1]).join(" + ");
+const PT = [
+  ["genoux","Mes genoux",'<path d="M8 3l2 8-3 10"/><path d="M14 3l1 8 3 10"/><circle cx="12" cy="11" r="2.5"/>',["stepdown"],["stepdown","pont","abductdebout","abductsol","lateral","squattempo","fentearr","pontuni","equilibre","bulgare","hipthrust"]],
+  ["chevilles","Chevilles et Achille",'<path d="M10 3v12l-4 5h12"/><circle cx="12" cy="15" r="2"/>',["dropdown"],["dropdown","soleaire","mollets","equilibre","rdluni","sautsplace","sautslat"]],
+  ["dos","Mon dos",'<path d="M12 3v18"/><path d="M8.5 6h7M8 10h8M8 14h8M8.5 18h7"/>',["curlup","lateral","birddog"],["curlup","lateral","birddog","pont","deadbug","superman"]],
+  ["hanches","Mes hanches",'<path d="M5 8c2 6 12 6 14 0"/><path d="M5 8l2 12M19 8l-2 12"/><circle cx="12" cy="13" r="2"/>',["pont"],["pont","abductsol","abductdebout","lateral","kickband","fentelat","pontuni","hipthrust"]],
+  ["pieds","Mes pieds",'<path d="M8 21c-1-4 0-7 0-11s2-7 4-7 3 3 3 6-1 5 1 8 0 4-2 4z"/>',["shortfoot"],["shortfoot","dropdown","equilibre","mollets","soleaire"]],
+  ["ischios","Arrière des cuisses",'<path d="M9 3v8l-2 10M15 3v8l2 10"/><path d="M9 11h6"/>',["pontchaise"],["pontchaise","legcurl","rdluni","goodmorning","nordic","pont"]]
+];
+const protSel = () => (S.protSel || []).filter(z => PT.some(t => t[0] === z));
+const protDur = () => [10,20,30].includes(S.protDur) ? S.protDur : 20;
+function interleave(pools){
+  const order = [];
+  while (pools.some(p => p.length)){
+    for (const pool of pools){
+      while (pool.length && (order.some(x => x.id === pool[0].id) || order.filter(x => family(x) === family(pool[0])).length >= 2)) pool.shift();
+      if (pool.length) order.push(pool.shift());
+    }
+  }
+  return order;
+}
+function genProtect(zones, dur){
+  const L = lvl(), target = dur * 60, warm = dur >= 20, cap = [2,2,3][L];
+  const ok = (e, key) => e && canDo(e) && (DIFF_OK[L].includes(e.diff) || (key && e.diff !== "Difficile"));
+  const pools = zones.map(z => {
+    const t = PT.find(x => x[0] === z);
+    const keys = t[3].filter(id => ok(BY_ID[id], true));
+    const rest = shuffle(t[4].filter(id => !keys.includes(id) && ok(BY_ID[id], false)));
+    return [...keys, ...rest].map(id => BY_ID[id]);
+  });
+  const order = interleave(pools);
+  let best = null;
+  for (let c = Math.min(2, order.length); c <= Math.min(10, order.length); c++){
+    for (let extra = 0; extra <= 2; extra++){
+      const items = order.slice(0, c).map(e => { const it = newItem(e.id); it.sets = Math.min(it.sets, cap) + extra; return it; });
+      const score = Math.abs(mixSecs(items, warm, false) - target) + extra * 45 + (c < 3 && order.length >= 3 ? 60 : 0);
+      if (!best || score < best.score) best = {score, items};
+    }
+  }
+  return best ? best.items : [];
+}
+/* Une même famille de mouvements (pompes, fentes, squats…) ne revient pas plus de deux fois */
+function family(e){
+  const id = e.id;
+  if (/^pompes|^pike/.test(id)) return "pompes";
+  if (/^fente|^bulgare/.test(id)) return "fente";
+  if (/^squat|^goblet|^sumo/.test(id) && id !== "squatprofond") return "squat";
+  if (/^pont|^hipthrust/.test(id)) return "pont";
+  if (/^planche|^lateral|^shouldertap|^ours/.test(id)) return "planche";
+  if (/^rowing|^rowinv/.test(id)) return "rowing";
+  if (/^curl/.test(id)) return "curl";
+  if (/^abduct/.test(id)) return "abduct";
+  return id;
+}
+const mixSecs = (items, warm, cool) => buildSteps(items, warm, cool).reduce((t,st) => t + (st.type==="rest" ? st.dur : workSeconds(st)), 0);
+function genMix(zones, dur){
+  const L = lvl(), strength = zones.filter(z => z !== "etirements"), stretch = zones.includes("etirements");
+  const warm = strength.length > 0 && dur >= 20, cool = strength.length > 0 && dur === 30 && !stretch, target = dur * 60;
+  const mk = (e, sets, amount, rest) => ({uid:uid(), id:e.id, sets, amount, rest, kind:"t"});
+  const stretches = shuffle(EX.filter(e => e.cat === "Étirements"));
+  /* Exercices alternés entre les parties choisies */
+  const pools = strength.map(z => {
+    const f = ZT.find(t => t[0] === z)[3];
+    let list = EX.filter(e => f(e) && canDo(e) && DIFF_OK[L].includes(e.diff));
+    if (list.length < 4) list = EX.filter(e => f(e) && canDo(e) && e.diff !== "Difficile");
+    return shuffle(list);
+  });
+  const order = [];
+  while (pools.some(p => p.length)){
+    for (const pool of pools){
+      while (pool.length && (order.some(x => x.id === pool[0].id) || order.filter(x => family(x) === family(pool[0])).length >= 2)) pool.shift();
+      if (pool.length) order.push(pool.shift());
+    }
+  }
+  const tail = strength.length && stretch ? stretches.slice(0, dur === 10 ? 2 : 3).map(e => mk(e, 1, 30, 10)) : [];
+  const list = strength.length ? order : stretches;
+  const work = strength.length ? [30,40,45][L] : 40, rest = strength.length ? [20,20,15][L] : 10;
+  /* On cherche le nombre d’exercices et de tours qui colle le mieux à la durée choisie */
+  let best = null;
+  for (let c = Math.min(3, list.length); c <= Math.min(10, list.length); c++){
+    for (let r = 1; r <= 5; r++){
+      const items = list.slice(0, c).map(e => mk(e, r, work, rest)).concat(tail);
+      const score = Math.abs(mixSecs(items, warm, cool) - target) + (r === 1 && strength.length ? 90 : 0) + (r === 4 ? 50 : 0) + (r >= 5 ? 110 : 0) + (c < 4 && list.length >= 4 ? 60 : 0);
+      if (!best || score < best.score) best = {score, items};
+    }
+  }
+  return best ? best.items : [];
+}
+function mixProg(){
+  const m = S.mix; if (!m || !m.items || !m.items.length) return null;
+  if (m.kind === "protect") return {id:"mix", name:`Prévention : ${mixLabel(m.zones, "protect")}`,
+    desc:"Des exercices de prévention choisis pour ces zones, à faire lentement et sans douleur. En cas de douleur qui persiste, consultez un professionnel de santé.",
+    warm: m.dur >= 20, cool: false, build: () => m.items.map(it => ({...it, uid:uid()}))};
+  const strength = m.zones.some(z => z !== "etirements");
+  return {id:"mix", name:`Ma séance ${mixLabel(m.zones)}`, desc:"Des exercices tirés au hasard parmi vos choix, alternés et adaptés à votre niveau.",
+    warm: strength && m.dur >= 20, cool: strength && m.dur === 30 && !m.zones.includes("etirements"),
+    build: () => m.items.map(it => ({...it, uid:uid()}))};
+}
 const LV_Q = [["Non, je débute ou je reprends","Des quantités douces pour démarrer en confiance."],["Oui, un peu","Une à deux fois par semaine."],["Oui, régulièrement","Trois fois ou plus par semaine."]];
 const INSTALL_HOWTO = `<p><b>Sur iPhone (Safari) :</b> touchez le bouton Partager, le carré avec une flèche vers le haut, puis « Sur l’écran d’accueil ».</p>
   <p><b>Sur Android (Chrome) :</b> touchez le menu ⋮ en haut à droite, puis « Ajouter à l’écran d’accueil » ou « Installer l’application ».</p>
@@ -3687,7 +3991,7 @@ const QUICK = [
   {id:"q20", mins:20, tag:"Complète", name:"Séance complète", desc:"Vingt minutes pour travailler tout le corps, échauffement compris.", warm:true, cool:false,
    build:()=>timed(["squat",PUSH_BY_LEVEL[lvl()],"fentearr","superman","pont","planche"],3,30,15)}
 ];
-const ALLP = () => [...PROGRAMS, ...QUICK];
+const ALLP = () => [...PROGRAMS, ...QUICK, ...(mixProg() ? [mixProg()] : [])];
 const findProg = id => ALLP().find(p => p.id === id);
 const progItems = p => p.build ? p.build() : p.items.map(id => { const it = newItem(id); it.sets = Math.min(it.sets, [2,2,3][lvl()]); return it; });
 const progWarm = p => p.warm ?? (S.warm && !p.calm);
@@ -3697,7 +4001,7 @@ function progGear(p){
   const g = new Set(); progItems(p).forEach(it => { const ex = BY_ID[it.id]; if (!ex.gear.some(x=>FREE.includes(x))) g.add(ex.gear[0]); });
   return g.size ? `Matériel : ${[...g].join(", ").toLowerCase()}` : "Sans matériel";
 }
-const ROTA = [["debut","coureur","ventre","jambes","debut","haut","etirements"],["coureur","jambes","ventre","haut","cardio","coureur","debut"],["coureur","jambes","cardio","haut","ventre","coureur","jambes"]];
+const ROTA = [["debut","coureur","ventre","jambes","mollets","haut","etirements"],["coureur","jambes","trail","haut","cardio","dos","debut"],["trail","jambes","cardio","coureur","ventre","haut","dos"]];
 const dailyProg = () => findProg(ROTA[lvl()][dayNum() % 7]);
 function weekInfo(){
   const t = new Date(), today = dayNum(t), dow = (t.getDay()+6) % 7, monday = today - dow, hist = S.hist || [];
@@ -3748,8 +4052,16 @@ function vAccueil(){
   }
   h += `<section><h3 class="sec">Combien de temps avez-vous&#8239;?</h3><div class="tiles3">
     ${QUICK.map(q=>`<button type="button" class="ttile" data-go="prog-${q.id}"><b>${q.mins}</b><span>minutes</span><small>${q.tag}</small></button>`).join("")}</div></section>
-    <section><h3 class="sec">Je veux travailler…</h3><div class="ztiles">
-    ${ZT.map(([id,l,ic])=>`<button type="button" class="ztile" data-go="prog-${id}"><span class="zi"><svg viewBox="0 0 24 24" aria-hidden="true">${ic}</svg></span>${l}</button>`).join("")}</div></section>`;
+    <section><h3 class="sec">Je veux travailler…</h3><p class="muted small" style="margin:-6px 0 12px">Choisissez une ou plusieurs parties : l’outil compose une séance qui mélange les exercices.</p>
+    <div class="ztiles">${ZT.map(([id,l,ic])=>`<button type="button" class="ztile" data-act="zt" data-v="${id}" aria-pressed="${mixSel().includes(id)}"><span class="zi"><svg viewBox="0 0 24 24" aria-hidden="true">${ic}</svg></span>${l}</button>`).join("")}</div>
+    ${mixSel().length ? `<div class="mixbar"><p class="mixsum"><b>${mixLabel(mixSel())}</b></p>
+      <div class="mixdur"><span id="durLbl">Durée</span><div class="seg" role="group" aria-labelledby="durLbl">${[10,20,30].map(d=>`<button type="button" data-act="mixdur" data-v="${d}" aria-pressed="${mixDur()===d}">${d} min</button>`).join("")}</div></div>
+      <button type="button" class="btn primary big" data-act="mix">Créer ma séance</button></div>` : ""}</section>
+    <section><h3 class="sec">Je veux protéger…</h3><p class="muted small" style="margin:-6px 0 12px">Des exercices de prévention pour vos zones sensibles de coureur. Plusieurs choix possibles.</p>
+    <div class="ztiles">${PT.map(([id,l,ic])=>`<button type="button" class="ztile" data-act="pt" data-v="${id}" aria-pressed="${protSel().includes(id)}"><span class="zi"><svg viewBox="0 0 24 24" aria-hidden="true">${ic}</svg></span>${l}</button>`).join("")}</div>
+    ${protSel().length ? `<div class="mixbar"><p class="mixsum"><b>${mixLabel(protSel(), "protect")}</b></p>
+      <div class="mixdur"><span id="durLbl2">Durée</span><div class="seg" role="group" aria-labelledby="durLbl2">${[10,20,30].map(d=>`<button type="button" data-act="ptdur" data-v="${d}" aria-pressed="${protDur()===d}">${d} min</button>`).join("")}</div></div>
+      <button type="button" class="btn primary big" data-act="protect">Créer ma séance de prévention</button></div>` : ""}</section>`;
   h += S.items.length
     ? `<button type="button" class="perso" data-go="ma-seance"><span><b>Ma séance personnelle</b><small>${plural(S.items.length,"exercice")}, environ ${estimate()} minutes</small></span><span class="go">Ouvrir</span></button>`
     : `<button type="button" class="perso" data-go="composer"><span><b>Composer ma propre séance</b><small>Choisissez vos exercices un par un</small></span><span class="go">Créer</span></button>`;
@@ -3757,10 +4069,26 @@ function vAccueil(){
       <li><span>Lancez la séance du jour, ou choisissez une durée ou une partie du corps.</span></li>
       <li><span>L’outil vous guide exercice par exercice, avec un personnage animé à imiter.</span></li>
       <li><span>Laissez-vous guider par les pauses chronométrées et les signaux sonores. Chaque séance terminée coche un jour de votre semaine.</span></li></ol></details>
+    <details class="card how-d"><summary>Conseils du coureur</summary>
+      <h4>Quand faire ma séance&#8239;?</h4><ul class="avoid">
+        <li>Un jour sans course, ou juste après une sortie facile.</li>
+        <li>Jamais la veille d’une séance importante : fractionné, côtes ou sortie longue.</li>
+        <li>Si vous courez le même jour, laissez 5 à 6 heures entre les deux.</li>
+        <li>Deux séances de renforcement par semaine, plus 10 minutes « Mollets et pieds » 2 à 3 fois par semaine : c’est une bonne base.</li></ul>
+      <button type="button" class="btn small" data-go="prog-mollets">Voir la séance Mollets et pieds</button>
+      <h4>Progresser sans se blesser</h4><ul class="avoid">
+        <li>Une gêne légère pendant l’exercice, qui disparaît dans les 24 heures, est acceptable.</li>
+        <li>Si une douleur augmente d’une séance à l’autre, persiste le lendemain matin ou change votre foulée, revenez au niveau précédent.</li>
+        <li>N’augmentez qu’une chose à la fois : la charge, le nombre de séries ou la lenteur de la descente.</li>
+        <li>Pour le trail, ralentissez la descente des squats et des fentes, 3 à 4 secondes : c’est elle qui prépare aux descentes.</li></ul>
+      <h4>Étirements</h4><ul class="avoid">
+        <li>Évitez d’étirer les mollets juste avant ou pendant une sortie.</li>
+        <li>Pour gagner en souplesse, préférez des étirements lents d’environ 30 secondes, à froid, le soir.</li></ul>
+      <p class="muted small" style="margin:8px 0 0">Conseils inspirés des recommandations courantes en prévention des blessures du coureur. Ils ne remplacent pas un bilan avec un professionnel de santé.</p></details>
     <button type="button" class="perso" data-go="profil"><span><b>Changer de téléphone&#8239;?</b><small>Sauvegardez votre progression avec un lien ou un QR code</small></span><span class="go">Sauvegarder</span></button>
     <footer class="legal"><p><strong>À lire avant de commencer.</strong> Les exercices, démonstrations et quantités proposés sont des conseils généraux. Ils ne remplacent pas l’avis d’un médecin, d’un kinésithérapeute ou d’un coach diplômé.</p>
     <p>Échauffez-vous avant chaque séance, adaptez l’effort à votre forme et arrêtez immédiatement en cas de douleur, de vertige ou d’essoufflement inhabituel. En cas de problème de santé, de blessure ou de reprise après une longue pause, demandez un avis médical avant de pratiquer. Vérifiez la stabilité du matériel utilisé (chaise, table, banc).</p>
-    <p>Vos données (prénom, séances, progression) restent uniquement sur cet appareil, dans votre navigateur. Elles ne sont envoyées nulle part.</p></footer></div>`;
+    <p>Vos données (prénom, séances, progression) restent uniquement sur cet appareil, dans votre navigateur. Elles ne sont envoyées nulle part.</p><p>Exercices et conseils inspirés des recommandations courantes en prévention des blessures du coureur.</p></footer></div>`;
   view.innerHTML = h; setSticky("");
   const fn = $("#firstName"); if (fn) fn.addEventListener("input", ()=>{ S.name = fn.value.trim().slice(0,30); save(); });
 }
@@ -3805,6 +4133,8 @@ function vProfil(){
       <label for="restoreIn" class="sr">Lien de sauvegarde</label><input id="restoreIn" class="field" placeholder="Collez votre lien de sauvegarde" autocomplete="off">
       <div class="row" style="margin-top:10px"><button type="button" class="btn" data-act="restorein">Récupérer</button></div></section>
     <section class="card"><h3>Installer sur mon téléphone</h3>${isStandalone() ? `<p style="margin:0">C’est déjà fait : l’outil est installé sur cet appareil.</p>` : INSTALL_HOWTO}</section>
+    <section class="card"><h3>Présentation</h3><p>Revoyez les écrans d’accueil et l’explication du fonctionnement, par exemple pour montrer l’outil à quelqu’un du club.</p>
+      <button type="button" class="btn" data-act="onb-open">Revoir la présentation</button></section>
     <section class="card"><h3>Effacer mes données</h3><p>Supprime le prénom, la séance et l’historique de ce téléphone.</p>
       <button type="button" class="btn danger" data-act="wipe">Effacer toutes mes données</button></section></div>`;
   view.innerHTML = h; setSticky("");
@@ -3844,6 +4174,7 @@ function vProg(id){
   const items = progItems(p);
   let h = `<button type="button" class="back" data-go="${p.build ? "accueil" : "seances"}">‹ ${p.build ? "Accueil" : "Toutes les séances"}</button><h2>${p.name}</h2>
     <p style="margin-top:8px">${p.desc}</p><p class="row"><span class="tag">Environ ${progMinutes(p)} min</span><span class="tag">${progGear(p)}</span></p>
+    ${p.id === "mix" ? `<p><button type="button" class="btn small" data-act="remix">Mélanger d’autres exercices</button></p>` : ""}
     <section class="card"><h3>Au programme</h3><ul class="plist">`;
   if (progWarm(p)) h += `<li><span><b>Échauffement</b><small>2 minutes pour préparer le corps</small></span></li>`;
   items.forEach(it => { h += `<li><span><b>${BY_ID[it.id].name}</b><small>${planText(it)}</small></span><button type="button" class="btn small ghost" data-go="ex-${it.id}">Voir</button></li>`; });
@@ -3923,7 +4254,7 @@ function vFiche(id){
       ${rec.map((r,i)=>`<tr><th scope="row">${LEVELS[i]}</th><td>${plural(r[0],"série")} de ${amountText(k,r[1],side)}, ${r[2] ? secText(r[2])+" de pause" : "sans pause"}</td></tr>`).join("")}
       </tbody></table></details>
       <p class="muted" style="margin:6px 0 0;font-size:.92rem">Repères indicatifs : écoutez vos sensations.</p></section>
-    <dl class="facts" style="margin-top:18px"><div><dt>Ce que ça fait travailler</dt><dd>${ex.muscles}</dd></div><div><dt>Matériel</dt><dd>${equipText(ex)}</dd></div><div><dt>Difficulté</dt><dd>${ex.diff}</dd></div></dl>
+    <dl class="facts" style="margin-top:18px"><div><dt>Ce que ça fait travailler</dt><dd>${ex.muscles}</dd></div><div><dt>Matériel</dt><dd>${equipText(ex)}</dd></div><div><dt>Difficulté</dt><dd>${ex.diff}</dd></div>${ex.protects ? `<div><dt>Utile en prévention pour</dt><dd>${ex.protects}</dd></div>` : ""}</dl>
     <section style="margin-top:20px"><h3>Comment faire</h3><ol class="steps">${ex.steps.map(s=>`<li><span>${s}</span></li>`).join("")}</ol></section>
     <section style="margin-top:8px"><h3>À éviter</h3><ul class="avoid">${ex.errors.map(s=>`<li>${s}</li>`).join("")}</ul></section>
     <section style="margin-top:16px"><h3>Respiration</h3><p>${ex.breath}</p>${ex.tip?`<p class="tip">${ex.tip}</p>`:""}</section>`;
@@ -4071,6 +4402,13 @@ document.addEventListener("click", ev => {
     case "start": startSession(); break;
     case "prog-start": { const p = findProg(v); if (p) startSession(progItems(p), progWarm(p), progCool(p)); break; }
     case "noinstall": S.noInstall = true; save(); refresh(); break;
+    case "zt": { const sel = new Set(mixSel()); sel.has(v) ? sel.delete(v) : sel.add(v); S.mixSel = ZT.map(t => t[0]).filter(z => sel.has(z)); save(); refresh(); break; }
+    case "mixdur": S.mixDur = +v; save(); refresh(); break;
+    case "mix": { const zones = mixSel(); if (!zones.length) break; S.mix = {kind:"work", zones, dur:mixDur(), items:genMix(zones, mixDur())}; save(); go("prog-mix"); break; }
+    case "remix": if (S.mix){ S.mix.items = S.mix.kind === "protect" ? genProtect(S.mix.zones, S.mix.dur) : genMix(S.mix.zones, S.mix.dur); save(); vProg("mix"); toast("Nouveaux exercices tirés au hasard."); } break;
+    case "pt": { const sel = new Set(protSel()); sel.has(v) ? sel.delete(v) : sel.add(v); S.protSel = PT.map(t => t[0]).filter(z => sel.has(z)); save(); refresh(); break; }
+    case "ptdur": S.protDur = +v; save(); refresh(); break;
+    case "protect": { const zones = protSel(); if (!zones.length) break; S.mix = {kind:"protect", zones, dur:protDur(), items:genProtect(zones, protDur())}; save(); go("prog-mix"); break; }
     case "goal": S.goal = Math.min(7, Math.max(1, (S.goal||3) + (+a.dataset.d))); save(); vProfil(); window.scrollTo(0, window.scrollY); break;
     case "copylink": {
       const link = saveLink();
@@ -4108,7 +4446,7 @@ document.addEventListener("click", ev => {
       const [mn,mx,st] = f==="amount" ? (k==="r" ? [1,100,1] : [5,300,5]) : LIMITS[f];
       it[f] = Math.min(mx, Math.max(mn, it[f] + d*st)); it.custom = true; save(); vSeance(); break; }
     case "reset": [it.sets, it.amount, it.rest] = recos(BY_ID[it.id])[lvl()]; it.custom = false; delete it.kind; save(); vSeance(); break;
-    default: playerAction(act, a);
+    default: if (!onbAction(act, a)) playerAction(act, a);
   }
 });
 document.addEventListener("change", ev => {
@@ -4218,6 +4556,9 @@ function renderEnd(){
   $("#pLbl").textContent = "Séance terminée"; $("#pBar").style.width = "100%";
   $("#pBody").innerHTML = `<div class="p-end"><img src="${LOGO}" alt=""><h2>Bravo, séance terminée !</h2>
     <p>${plural(PL.count,"exercice")} en ${plural(min,"minute")}.</p><p style="font-weight:800;color:var(--lane)">${weekMsg}</p>
+    <div class="feel"><p style="font-weight:800;margin:14px 0 8px">Comment vous sentez-vous&#8239;?</p>
+      <div class="row" style="justify-content:center"><button type="button" class="btn small" data-act="feel" data-v="0">Bien</button><button type="button" class="btn small" data-act="feel" data-v="1">Une gêne légère</button><button type="button" class="btn small" data-act="feel" data-v="2">Une douleur</button></div>
+      <p id="feelMsg" class="feelmsg" aria-live="polite"></p></div>
     <p class="muted">Buvez un verre d’eau et notez comment vous vous sentez. À la prochaine sortie du club !</p>
     <button type="button" class="btn primary big" data-act="p-close">Retour à l’accueil</button></div>`;
   beep(784,.2); setTimeout(()=>beep(988,.2),220); setTimeout(()=>beep(1175,.35),440);
@@ -4242,13 +4583,129 @@ function playerAction(act, a){
       let j = PL.i + 1;
       while (j < PL.steps.length && (PL.steps[j].type==="rest" || PL.steps[j].it === st.it)) j++;
       PL.i = j; renderStep(); break; }
+    case "feel": {
+      const msg = ["Parfait. La prochaine fois, vous pourrez augmenter un peu, mais une seule chose à la fois : les séries, les répétitions ou la lenteur de la descente.",
+        "Une gêne légère pendant l’exercice, qui disparaît dans les 24 heures, est acceptable. Si elle est encore là demain matin, restez au même niveau la prochaine fois.",
+        "Arrêtez les exercices qui font mal. Si la douleur augmente d’une séance à l’autre, persiste le lendemain matin ou modifie votre foulée, revenez au niveau inférieur et parlez-en à un professionnel de santé."][+a.dataset.v];
+      document.querySelectorAll('[data-act="feel"]').forEach(b => b.setAttribute("aria-pressed", String(b === a)));
+      const box = $("#feelMsg"); box.textContent = msg;
+      if (+a.dataset.v === 2 && lvl() > 0){ const b = document.createElement("button"); b.type = "button"; b.className = "btn small"; b.dataset.act = "feel-down"; b.textContent = `Passer au niveau ${LEVELS[lvl()-1].toLowerCase()}`; box.append(document.createElement("br"), b); }
+      break; }
+    case "feel-down": setLevel(lvl() - 1); $("#feelMsg").textContent = `C’est noté : niveau ${LEVELS[lvl()].toLowerCase()}. Les quantités ont été adaptées.`; break;
     case "p-sound": PL.sound = !PL.sound; a.textContent = PL.sound ? "🔊" : "🔇"; a.setAttribute("aria-label", PL.sound ? "Couper le son" : "Activer le son"); if (PL.sound){ audioUnlock(); beep(880,.1); } break;
   }
 }
 
 /* ===================== Démarrage ===================== */
+/* ===================== Présentation au premier lancement ===================== */
+const OB = {open:false, step:0};
+const OB_STEPS = 5;
+const OB_ICONS = {
+  play:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z"/></svg>',
+  fig:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="13" cy="4.5" r="2"/><path d="M12.5 7l-1.5 6 4 1.5 .5 6"/><path d="M11 13l-4 3.5-2.5-.5"/><path d="M12.5 9l3.5 1.5M12.5 9l-3 2.5"/></svg>',
+  clock:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 2h6"/></svg>',
+  heart:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/></svg>',
+  home:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg>',
+  shield:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/></svg>'
+};
+function firstProg(){ const p = dailyProg(); return ["etirements","mollets"].includes(p.id) ? findProg("debut") : p; }
+function openOnb(step = 0){
+  OB.open = true; OB.step = step;
+  let el = $("#onb");
+  if (!el){ el = document.createElement("div"); el.id = "onb"; el.className = "onb"; el.setAttribute("role","dialog"); el.setAttribute("aria-modal","true"); el.setAttribute("aria-label","Présentation de l’outil"); document.body.appendChild(el); }
+  document.body.style.overflow = "hidden";
+  renderOnb();
+}
+function closeOnb(){
+  OB.open = false; const el = $("#onb"); if (el) el.remove();
+  if (!PL.open) document.body.style.overflow = "";
+  if (S.level === null) S.level = 0;
+  S.onboarded = true; save();
+}
+function obItem(icon, title, text){ return `<li><span class="zi">${icon}</span><span><b>${title}</b><small>${text}</small></span></li>`; }
+function renderOnb(){
+  const el = $("#onb"); if (!el) return;
+  const st = OB.step;
+  let body = "";
+  if (st === 0){
+    body = `<div class="onb-hero"><img src="${LOGO}" alt="Logo du Regripp’Run Club"><h2 id="obT" tabindex="-1">Bienvenue au Regripp’Run Club !</h2><p class="muted">Votre coach de renforcement musculaire à la maison.</p></div>
+      <ul class="onb-list">
+        ${obItem(OB_ICONS.home, "Des séances guidées chez vous", "Sans matériel ou presque, de 5 à 30 minutes.")}
+        ${obItem(OB_ICONS.fig, "Un personnage à imiter", "Chaque mouvement est montré en animation, étape par étape.")}
+        ${obItem(OB_ICONS.shield, "Pensé pour les coureurs", "Des exercices pour courir mieux et se blesser moins.")}
+      </ul>
+      <div class="onb-actions"><button type="button" class="btn primary big" data-act="onb-next">C’est parti</button>
+        <p class="muted small" style="text-align:center;margin:0">Pas de compte à créer : tout reste sur votre téléphone.</p></div>`;
+  } else if (st === 1){
+    body = `<h2 id="obT" tabindex="-1">Comment vous appelez-vous&#8239;?</h2>
+      <p>C’est facultatif : votre prénom sert seulement à vous dire bonjour.</p>
+      <label for="obName" class="lab">Votre prénom</label>
+      <input id="obName" class="field" maxlength="30" autocomplete="given-name" placeholder="Par exemple : Marie" value="${esc(S.name||"")}">
+      <div class="onb-actions"><button type="button" class="btn primary big" data-act="onb-next">Continuer</button></div>`;
+  } else if (st === 2){
+    body = `<h2 id="obT" tabindex="-1">Faites-vous du sport chaque semaine&#8239;?</h2>
+      <p>Votre réponse sert à adapter le nombre de séries et de mouvements.</p>
+      <div class="q-btns">${LV_Q.map(([a,b],i)=>`<button type="button" data-act="onb-level" data-v="${i}" aria-pressed="${S.level===i}">${a}<small>${b}</small></button>`).join("")}</div>
+      <p class="muted small" style="margin:0">Dans le doute, choisissez « je débute » : vous pourrez changer à tout moment.</p>`;
+  } else if (st === 3){
+    const g = S.goal || 3;
+    body = `<h2 id="obT" tabindex="-1">Votre semaine et votre matériel</h2>
+      <div><p class="lab" id="obGoalL">Combien de séances par semaine&#8239;?</p>
+        <div class="seg" role="group" aria-labelledby="obGoalL">${[2,3,4].map(n=>`<button type="button" data-act="onb-goal" data-v="${n}" aria-pressed="${g===n}" aria-label="${n} séances par semaine">${n}</button>`).join("")}</div>
+        <p class="muted small" style="margin:8px 0 0">Deux à trois séances par semaine suffisent pour progresser.</p></div>
+      <div><p class="lab">Qu’avez-vous chez vous&#8239;?</p>
+        <div class="chips"><button type="button" class="chip" data-act="onb-gear" data-v="none" aria-pressed="${F.gear.has("none")}">Rien du tout</button>${GEAR_CHIPS.map(([v,l])=>`<button type="button" class="chip" data-act="onb-gear" data-v="${v}" aria-pressed="${F.gear.has(v)}">${l}</button>`).join("")}</div>
+        <p class="muted small" style="margin:0">Les séances composées pour vous en tiendront compte.</p></div>
+      <div class="onb-actions"><button type="button" class="btn primary big" data-act="onb-next">Continuer</button></div>`;
+  } else {
+    const p = firstProg();
+    body = `<h2 id="obT" tabindex="-1">Comment ça marche&#8239;?</h2>
+      <ul class="onb-list">
+        ${obItem(OB_ICONS.play, "Lancez une séance", "La séance du jour, une durée ou les parties du corps de votre choix.")}
+        ${obItem(OB_ICONS.fig, "Imitez le personnage", "Il montre le geste. « Comment faire ? » détaille chaque étape.")}
+        ${obItem(OB_ICONS.clock, "Laissez-vous guider", "Les pauses sont chronométrées et des signaux sonores vous préviennent.")}
+        ${obItem(OB_ICONS.heart, "Écoutez votre corps", "Une gêne légère est normale. Une douleur : on arrête et on adapte.")}
+      </ul>
+      ${isStandalone() ? "" : `<details class="tipbox"><summary>Astuce : installer l’outil sur votre téléphone</summary>${INSTALL_HOWTO}</details>`}
+      <div class="onb-actions">
+        <button type="button" class="btn primary big" data-act="onb-first">Faire ma première séance<span class="sub">${p.name}, environ ${progMinutes(p)} minutes</span></button>
+        <button type="button" class="btn big" data-act="onb-home">Découvrir l’accueil</button></div>`;
+  }
+  el.innerHTML = `<div class="onb-top">
+      ${st > 0 ? `<button type="button" class="back" data-act="onb-back" style="margin:0">‹ Retour</button>` : `<span></span>`}
+      <div class="grow">${st > 0 ? `<div class="lbl">Étape ${st} sur ${OB_STEPS-1}</div><div class="bar"><i style="width:${Math.round(st/(OB_STEPS-1)*100)}%"></i></div>` : ""}</div>
+      ${st < OB_STEPS-1 ? `<button type="button" class="linkbtn" data-act="onb-skip">Passer</button>` : ""}
+    </div><div class="onb-body">${body}</div>`;
+  el.scrollTop = 0;
+  const t = $("#obT"); if (t) t.focus({preventScroll:true});
+  const n = $("#obName"); if (n) n.addEventListener("input", ()=>{ S.name = n.value.trim().slice(0,30); save(); });
+}
+function onbAction(act, a){
+  const v = a.dataset.v;
+  switch(act){
+    case "onb-open": openOnb(0); return true;
+    case "onb-next": OB.step = Math.min(OB_STEPS-1, OB.step+1); renderOnb(); return true;
+    case "onb-back": OB.step = Math.max(0, OB.step-1); renderOnb(); return true;
+    case "onb-skip": closeOnb(); route(); return true;
+    case "onb-level":
+      document.querySelectorAll('[data-act="onb-level"]').forEach(b => b.setAttribute("aria-pressed", String(b === a)));
+      S.level = +v; S.items.forEach(it => { if (!it.custom && !it.kind){ [it.sets, it.amount, it.rest] = recos(BY_ID[it.id])[+v]; } }); save();
+      setTimeout(()=>{ if (OB.open && OB.step === 2){ OB.step = 3; renderOnb(); } }, 220);
+      return true;
+    case "onb-goal": S.goal = +v; save(); renderOnb(); return true;
+    case "onb-gear":
+      if (v === "none"){ const on = !F.gear.has("none"); F.gear.clear(); if (on) F.gear.add("none"); }
+      else { F.gear.delete("none"); F.gear.has(v) ? F.gear.delete(v) : F.gear.add(v); }
+      S.owned = [...F.gear]; save(); renderOnb(); return true;
+    case "onb-first": { const p = firstProg(); closeOnb(); route(); startSession(progItems(p), progWarm(p), progCool(p)); return true; }
+    case "onb-home": closeOnb(); route(); window.scrollTo(0,0); return true;
+  }
+  return false;
+}
+
 if (location.hash === "#go") history.replaceState(null, "", "#accueil");
 route();
+if (S.level === null && !S.onboarded && !location.hash.startsWith("#restore-")) openOnb(0);
 </script>
 </body>
 </html>
