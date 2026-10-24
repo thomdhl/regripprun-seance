@@ -342,6 +342,63 @@ nav.tabs button[aria-current="page"]::before{content:"";position:absolute;top:0;
 .iconbtn.tog[aria-pressed="false"] svg{stroke-dasharray:2 3}
 .p-instr .count{font-family:"Fredoka",sans-serif;font-weight:700;font-size:1.4rem;color:var(--lane);min-height:1.6em}
 .player.paused .p-stage,.player.paused .clock{opacity:.5}
+.streak{display:flex;align-items:center;gap:12px;background:var(--surface);border:2px solid var(--line);border-radius:20px;padding:12px 14px;color:var(--ink);text-decoration:none}
+.sk-ic{width:44px;height:44px;border-radius:50%;background:var(--lane-soft);display:grid;place-items:center;flex:none}
+.sk-ic svg{width:24px;height:24px;stroke:var(--band);fill:none;stroke-width:2.2;stroke-linejoin:round}
+.sk-t{flex:1;min-width:0}.sk-t b{display:block;line-height:1.2}.sk-t small{display:block;color:var(--muted);font-weight:700;font-size:.9rem}
+.sk-days{display:flex;gap:4px}.sk-days i{width:9px;height:26px;border-radius:6px;background:var(--line)}
+.sk-days i.on{background:var(--lane)}.sk-days i.now:not(.on){background:transparent;border:2px solid var(--lane)}
+.hdur{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:14px;font-weight:800;position:relative}
+.hseg{display:flex;border:2px solid var(--lane-ink);border-radius:999px;overflow:hidden}
+.hseg button{border:0;background:transparent;color:var(--lane-ink);font-weight:800;min-height:44px;padding:0 14px}
+.hseg button[aria-pressed="true"]{background:var(--lane-ink);color:var(--lane)}
+.runbtns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.runbtn{display:flex;flex-direction:column;align-items:flex-start;gap:6px;text-align:left;padding:14px;border-radius:20px;background:var(--surface);border:2px solid var(--line)}
+.runbtn:hover{border-color:var(--lane)}
+.runbtn b{line-height:1.2}.runbtn small{color:var(--muted);font-weight:700;font-size:.9rem}
+.runbtn .zi svg,.tipday .zi svg{width:22px;height:22px;stroke:var(--lane);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.tipday{display:flex;gap:12px;align-items:flex-start;background:var(--lane-soft);border-radius:20px;padding:14px 16px}
+.tipday p{margin:2px 0 0;font-size:.98rem}
+.tipday .zi{background:var(--surface)}
+.legal-d summary{font-weight:800;color:var(--muted);min-height:44px;display:flex;align-items:center;cursor:pointer}
+.legal-d .legal{margin-top:0;border-top:0;padding-top:0}
+.sec-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.sec-head h3{margin:0 0 10px}
+.hscroll{display:flex;gap:10px;overflow-x:auto;padding-bottom:6px;margin-right:-18px;scroll-snap-type:x mandatory}
+.pcard{flex:none;width:170px;scroll-snap-align:start;text-align:left;border:0;border-radius:20px;background:var(--lane-soft);color:var(--ink);padding:14px;display:flex;flex-direction:column;gap:6px}
+.pcard small{font-weight:800;color:var(--lane);font-size:.85rem}
+.pcard b{font-family:"Fredoka",sans-serif;font-weight:700;font-size:1.15rem;line-height:1.15}
+.pcard span{font-size:.85rem;font-weight:700}
+.pcard.dark{background:var(--ink);color:var(--paper)}.pcard.dark small{color:var(--chalk)}
+.seg.wide{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));width:100%}
+.seg.wide button{min-height:48px;font-size:1rem}
+.compose .btn[disabled]{opacity:.55;cursor:not-allowed}
+.perso.solid{border:2px solid var(--line);background:var(--surface)}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:14px}
+.stats div{background:var(--surface);border:2px solid var(--line);border-radius:18px;padding:10px 6px;text-align:center}
+.stats b{display:block;font-family:"Fredoka",sans-serif;font-weight:700;font-size:1.4rem;color:var(--lane);line-height:1.15}
+.stats small{font-weight:700;color:var(--muted);font-size:.8rem}
+.calg{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px;text-align:center}
+.calg.head span{font-weight:800;font-size:.8rem;color:var(--muted)}
+.calg span{height:36px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:.85rem;color:var(--muted)}
+.calg span.on{background:var(--lane);color:var(--lane-ink)}
+.calg span.now{border:2px solid var(--lane);color:var(--ink)}
+.badges{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 8px}
+.badge-i{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center}
+.badge-i span{width:54px;height:54px;border-radius:50%;background:var(--line);display:grid;place-items:center}
+.badge-i svg{width:28px;height:28px;stroke:var(--muted);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.badge-i small{font-weight:800;font-size:.8rem;color:var(--muted);line-height:1.2}
+.badge-i.on span{background:var(--chalk)}.badge-i.on svg{stroke:#2C3410}.badge-i.on small{color:var(--ink)}
+.daysel .chip{min-width:44px;justify-content:center}
+.estats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:12px 0}
+.estats div{background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:8px 4px}
+.estats b{display:block;font-family:"Fredoka",sans-serif;font-size:1.5rem;color:var(--lane);line-height:1.1}
+.estats small{font-weight:700;font-size:.78rem;color:var(--muted)}
+.newbadge{display:flex;align-items:center;gap:12px;text-align:left;background:var(--ink);color:var(--paper);border-radius:18px;padding:12px 14px;margin:8px 0}
+.newbadge span{width:48px;height:48px;border-radius:50%;background:var(--chalk);display:grid;place-items:center;flex:none}
+.newbadge svg{width:26px;height:26px;stroke:#2C3410;fill:none;stroke-width:2.2;stroke-linecap:round}
+.newbadge small{display:block;color:var(--chalk);font-weight:800}.newbadge b{font-family:"Fredoka",sans-serif;font-size:1.15rem}
+.p-actions .btn svg,.row .btn svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 @media (prefers-reduced-motion: reduce){ *{transition:none!important;scroll-behavior:auto!important} }
 </style>
 </head>
@@ -359,9 +416,9 @@ nav.tabs button[aria-current="page"]::before{content:"";position:absolute;top:0;
 <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
 
 <nav class="tabs" aria-label="Navigation principale"><div>
-  <button type="button" data-go="accueil"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>Accueil</button>
-  <button type="button" data-go="exercices"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l5 5"/></svg>Exercices</button>
-  <button type="button" data-go="ma-seance"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4h6v3H9z"/><path d="M8.5 12l2 2 4-4"/></svg>Ma séance<span class="badge" id="badge" hidden></span></button>
+  <button type="button" data-go="accueil"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>Aujourd’hui</button>
+  <button type="button" data-go="seances"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 9h6M9 13h6M9 17h4"/></svg>Séances<span class="badge" id="badge" hidden></span></button>
+  <button type="button" data-go="progres"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Progrès</button>
 </div></nav>
 
 <div class="player" id="player" hidden role="dialog" aria-modal="true" aria-label="Séance en cours"></div>
@@ -3845,7 +3902,7 @@ function toast(msg, label, fn){
   toastTimer = setTimeout(()=> toastEl.hidden = true, 5000);
 }
 function updateNav(r){
-  const group = ["exercices","composer"].includes(r) || r.startsWith("ex-") ? "exercices" : r==="ma-seance" ? "ma-seance" : "accueil";
+  const group = r === "progres" ? "progres" : (r === "accueil" || r === "profil" || r.startsWith("restore-")) ? "accueil" : "seances";
   document.querySelectorAll("nav.tabs button").forEach(b => b.dataset.go===group ? b.setAttribute("aria-current","page") : b.removeAttribute("aria-current"));
   $("#badge").hidden = !S.items.length; $("#badge").textContent = S.items.length;
 }
@@ -3865,6 +3922,14 @@ const SVG = {
   clock:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
   play:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>',
   person:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>',
+  flame:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c1 4 6 6 6 11a6 6 0 0 1-12 0c0-3 2-4 2-7 2 1 3 3 3 5 1-2 1-6 1-9z"/></svg>',
+  shoe:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 16l2-8 4 2 3 3 7 1c2 0 2 4 0 4H4z"/><path d="M3 19h18"/></svg>',
+  cool:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="2"/><path d="M4 9l8 2 8-2M12 11v4l-4 6M12 15l4 6"/></svg>',
+  bolt:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 3L5 14h6l-1 7 8-11h-6z"/></svg>',
+  medal:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="15" r="6"/><path d="M8 3l4 6 4-6M12 12v6M9 15h6"/></svg>',
+  share:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12v7h16v-7"/><path d="M12 15V3M7 8l5-5 5 5"/></svg>',
+  cal:'<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>',
+  search:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><line x1="15.5" y1="15.5" x2="21" y2="21"/></svg>',
   fig:'<svg class="hero-fig" viewBox="0 0 130 150" aria-hidden="true"><circle cx="78" cy="22" r="12"/><path d="M74 36L66 82L100 90L104 132"/><path d="M66 82L36 110L14 108"/><path d="M72 48L104 58"/><path d="M72 48L46 70"/></svg>'
 };
 const ZT = [
@@ -3875,6 +3940,265 @@ const ZT = [
   ["cardio","Cardio",'<path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/>', e => e.cat === "Cardio"],
   ["etirements","Étirements",'<circle cx="12" cy="5" r="2"/><path d="M4 9l8 2 8-2M12 11v4l-4 6M12 15l4 6"/>', e => e.cat === "Étirements"]
 ];
+const LV_Q = [["Non, je débute ou je reprends","Des quantités douces pour démarrer en confiance."],["Oui, un peu","Une à deux fois par semaine."],["Oui, régulièrement","Trois fois ou plus par semaine."]];
+const isStandalone = () => matchMedia("(display-mode: standalone)").matches || navigator.standalone === true;
+const TIPS = [
+  "En trail, c’est la descente qui fatigue les cuisses : ralentissez la descente de vos squats, 3 secondes.",
+  "Une gêne légère qui disparaît dans les 24 heures est normale. Une douleur qui persiste : on lève le pied.",
+  "Placez votre renfo un jour sans course, ou juste après un footing facile. Jamais la veille d’une séance clé.",
+  "N’augmentez qu’une chose à la fois : les séries, les répétitions ou la lenteur de la descente.",
+  "Évitez d’étirer les mollets juste avant une sortie : gardez-les pour le soir.",
+  "Le tendon d’Achille aime le travail lent : la descente du talon sur une marche est sa meilleure amie.",
+  "Deux séances de renfo par semaine suffisent pour progresser. La régularité compte plus que l’intensité.",
+  "Face à un miroir, vérifiez que votre genou reste au-dessus du pied pendant les fentes et les squats.",
+  "Le gainage protège le dos dans les longues sorties, surtout avec un sac ou des bâtons.",
+  "Après une sortie, 10 minutes de mollets et pieds valent mieux qu’une heure de renfo une fois par mois."
+];
+
+/* Séances rapides, échauffement, séance du jour */
+const PUSH_BY_LEVEL = ["pompesmur","pompesgenoux","pompes"];
+const timed = (ids, sets, amount, rest) => ids.map(id => ({uid:uid(), id, sets, amount, rest, kind:"t"}));
+const QUICK = [
+  {id:"q5", mins:5, tag:"Réveil", name:"Réveil musculaire", desc:"Cinq minutes pour réveiller tout le corps, sans matériel.", warm:false, cool:false,
+   build:()=>timed(["jj","squat","pont",PUSH_BY_LEVEL[lvl()],"planche","genoux"],1,30,15)},
+  {id:"q10", mins:10, tag:"Express", name:"Séance express", desc:"Dix minutes : deux tours de cinq exercices, sans matériel.", warm:false, cool:false,
+   build:()=>timed(["squat",PUSH_BY_LEVEL[lvl()],"pont","fentearr","planche"],2,35,15)},
+  {id:"q20", mins:20, tag:"Complète", name:"Séance complète", desc:"Vingt minutes pour travailler tout le corps, échauffement compris.", warm:true, cool:false,
+   build:()=>timed(["squat",PUSH_BY_LEVEL[lvl()],"fentearr","superman","pont","planche"],3,30,15)},
+  {id:"echauffement", name:"Échauffement avant la sortie", desc:"Quelques minutes de gammes pour arriver prêt au départ, sans étirer les mollets.", warm:false, cool:false, hidden:true,
+   build:()=>timed(["genoux","talons","jj","squat","fentearr","sautsplace"],1,30,10)}
+];
+const ROTA = [["debut","coureur","ventre","jambes","mollets","haut","etirements"],["coureur","jambes","trail","haut","cardio","dos","debut"],["trail","jambes","cardio","coureur","ventre","haut","dos"]];
+const dailyBase = () => PROGRAMS.find(p => p.id === ROTA[lvl()][dayNum() % 7]);
+const dailyDur = () => [10,20,30].includes(S.dailyDur) ? S.dailyDur : 20;
+function fitItems(items, minutes){
+  const warm = minutes >= 20, cool = minutes >= 30, target = minutes * 60;
+  let best = null;
+  for (let c = Math.min(3, items.length); c <= items.length; c++){
+    for (let s = 1; s <= 4; s++){
+      const list = items.slice(0, c).map(it => ({...it, sets:s}));
+      const score = Math.abs(mixSecs(list, warm, cool) - target) + (s === 1 && minutes >= 20 ? 60 : 0) + (c < items.length && minutes >= 20 ? 30 : 0);
+      if (!best || score < best.score) best = {score, list};
+    }
+  }
+  return {items: best ? best.list : items, warm, cool};
+}
+function jourProg(){
+  const p = dailyBase(), d = dailyDur(), calm = !!p.calm;
+  const f = fitItems(p.items.map(newItem), d);
+  return {id:"jour", base:p.id, name:p.name, desc:p.desc, warm: f.warm && !calm, cool: f.cool && !calm, items:p.items, build: () => f.items.map(it => ({...it, uid:uid()}))};
+}
+const dailyProg = () => jourProg();
+const ALLP = () => [...PROGRAMS, ...QUICK, jourProg(), ...(mixProg() ? [mixProg()] : [])];
+const findProg = id => ALLP().find(p => p.id === id);
+const progItems = p => p.build ? p.build() : p.items.map(id => { const it = newItem(id); it.sets = Math.min(it.sets, [2,2,3][lvl()]); return it; });
+const progWarm = p => p.warm ?? (S.warm && !p.calm);
+const progCool = p => p.cool ?? (S.cool && !p.calm);
+const progMinutes = p => estimate(progItems(p), progWarm(p), progCool(p));
+function progGear(p){
+  const g = new Set(); progItems(p).forEach(it => { const ex = BY_ID[it.id]; if (!ex.gear.some(x=>FREE.includes(x))) g.add(ex.gear[0]); });
+  return g.size ? `Matériel : ${[...g].join(", ").toLowerCase()}` : "Sans matériel";
+}
+
+/* Semaine, régularité et joker */
+const mondayOf = n => { const d = new Date(n * 86400000); return n - ((d.getUTCDay() + 6) % 7); };
+function weekInfo(){
+  const t = new Date(), today = dayNum(t), dow = (t.getDay()+6) % 7, monday = today - dow, hist = S.hist || [];
+  const names = ["lundi","mardi","mercredi","jeudi","vendredi","samedi","dimanche"];
+  const days = ["L","M","M","J","V","S","D"].map((l,i)=>({l, full:names[i], done:hist.includes(monday+i), today:i===dow}));
+  return {days, count: hist.filter(n => n>=monday && n<monday+7).length, doneToday: hist.includes(today)};
+}
+function streakInfo(){
+  const goal = S.goal || 3, hist = S.hist || [], monday = mondayOf(dayNum());
+  const cnt = m => hist.filter(n => n >= m && n < m + 7).length;
+  const monthKey = m => { const d = new Date(m * 86400000); return d.getUTCFullYear() + "-" + d.getUTCMonth(); };
+  let streak = cnt(monday) >= goal ? 1 : 0, used = new Set(), weeksMet = 0;
+  const first = hist.length ? mondayOf(Math.min(...hist)) : monday;
+  for (let m = monday - 7; m >= first; m -= 7){
+    if (cnt(m) >= goal) streak++;
+    else if (!used.has(monthKey(m)) && streak > 0) used.add(monthKey(m));
+    else if (!used.has(monthKey(m)) && streak === 0 && m === monday - 7) used.add(monthKey(m));
+    else break;
+  }
+  for (let m = monday; m >= first; m -= 7) if (cnt(m) >= goal) weeksMet++;
+  return {streak, jokerLeft: !used.has(monthKey(monday)), weeksMet};
+}
+const minutesTotal = () => (S.log || []).reduce((t, l) => t + (l.m || 0), 0);
+const BADGES = [
+  ["first","Première séance", s => s.done >= 1],
+  ["s5","5 séances", s => s.done >= 5],
+  ["s10","10 séances", s => s.done >= 10],
+  ["s25","25 séances", s => s.done >= 25],
+  ["s50","50 séances", s => s.done >= 50],
+  ["goal","Objectif de la semaine", s => s.weeksMet >= 1],
+  ["w4","4 semaines d’affilée", s => s.streak >= 4],
+  ["w8","8 semaines d’affilée", s => s.streak >= 8],
+  ["h5","5 heures d’effort", s => s.minutes >= 300]
+];
+function badgeState(){ const st = streakInfo(); return {done: S.done || 0, streak: st.streak, weeksMet: st.weeksMet, minutes: minutesTotal()}; }
+const unlocked = () => { const st = badgeState(); return BADGES.filter(b => b[2](st)).map(b => b[0]); };
+const durTxt = m => m < 60 ? `${m} min` : `${Math.floor(m/60)} h${m % 60 ? " " + String(m % 60).padStart(2,"0") : ""}`;
+
+function updateHeader(r){
+  const home = r === "accueil";
+  $(".top").classList.toggle("is-home", home);
+  $("#hT1").textContent = home ? (S.name ? `Bonjour ${S.name} !` : "Bonjour !") : "Regripp’Run Club";
+  $("#hT2").textContent = home ? cap(new Date().toLocaleDateString("fr-FR",{weekday:"long", day:"numeric", month:"long"})) : "Ma séance à la maison";
+  $("#profBtn").innerHTML = S.name ? esc(S.name.charAt(0).toUpperCase()) : SVG.person;
+  r === "profil" ? $("#profBtn").setAttribute("aria-current","page") : $("#profBtn").removeAttribute("aria-current");
+}
+
+function vAccueil(){
+  const w = weekInfo(), goal = S.goal || 3, st = streakInfo();
+  let h = `<div class="home">`;
+  h += `<a class="streak" href="#progres"><span class="sk-ic">${SVG.flame}</span><span class="sk-t"><b>${st.streak ? `${st.streak} semaine${st.streak > 1 ? "s" : ""} d’affilée` : "Votre série commence cette semaine"}</b><small>Cette semaine : ${w.count} séance${w.count > 1 ? "s" : ""} sur ${goal}</small></span>
+    <span class="sk-days" aria-hidden="true">${w.days.map(d => `<i class="${d.done ? "on" : ""}${d.today ? " now" : ""}"></i>`).join("")}</span></a>`;
+  if (w.doneToday){
+    h += `<section class="hero">${SVG.fig}<span class="pill">Séance du jour</span><h2>C’est fait pour aujourd’hui, bravo&#8239;!</h2>
+      <p>Reposez-vous ou étirez-vous. Une nouvelle séance vous attend demain.</p>
+      <div class="row"><button type="button" class="btn" data-go="prog-etirements">Étirements</button><button type="button" class="btn ghost" data-go="seances">Une autre séance</button></div></section>`;
+  } else {
+    const p = jourProg(), d = dailyDur();
+    h += `<section class="hero">${SVG.fig}<span class="pill">Votre séance du jour</span><h2>${p.name}</h2><p>${p.desc}</p>
+      <div class="hdur"><span id="hdurL">Durée</span><div class="hseg" role="group" aria-labelledby="hdurL">${[10,20,30].map(m => `<button type="button" data-act="ddur" data-v="${m}" aria-pressed="${d === m}">${m} min</button>`).join("")}</div></div>
+      <button type="button" class="btn big start" data-act="prog-start" data-v="jour">${SVG.play}Commencer</button>
+      <div class="hlinks"><button type="button" class="hlink" data-go="prog-jour">Voir les exercices</button><button type="button" class="hlink" data-go="seances">Autre séance</button></div></section>`;
+  }
+  h += `<div class="runbtns">
+      <button type="button" class="runbtn" data-act="prog-start" data-v="echauffement"><span class="zi">${SVG.shoe}</span><b>Je vais courir</b><small>Échauffement, ${progMinutes(findProg("echauffement"))} min</small></button>
+      <button type="button" class="runbtn" data-act="prog-start" data-v="etirements"><span class="zi">${SVG.cool}</span><b>Je reviens de courir</b><small>Étirements, ${progMinutes(findProg("etirements"))} min</small></button></div>
+    <section class="tipday"><span class="zi">${SVG.bolt}</span><div><b>Le conseil du jour</b><p>${TIPS[dayNum() % TIPS.length]}</p></div></section>`;
+  if (S.level !== null && !isStandalone() && !S.noInstall){
+    h += `<section class="tipbox"><b>Installez l’appli « Ma séance »</b><p>Elle s’ouvrira en plein écran depuis l’écran d’accueil, fonctionnera même sans connexion, et votre progression sera mieux conservée.</p>
+      <details><summary>Comment faire&#8239;?</summary>${installHowto()}</details>
+      <button type="button" class="linkbtn" data-act="noinstall">Ne plus afficher</button></section>`;
+  }
+  h += `<details class="legal-d"><summary>À lire avant de commencer</summary><div class="legal">
+    <p>Les exercices, démonstrations et quantités proposés sont des conseils généraux. Ils ne remplacent pas l’avis d’un médecin, d’un kinésithérapeute ou d’un coach diplômé.</p>
+    <p>Échauffez-vous avant chaque séance, adaptez l’effort à votre forme et arrêtez immédiatement en cas de douleur, de vertige ou d’essoufflement inhabituel. En cas de problème de santé, de blessure ou de reprise après une longue pause, demandez un avis médical avant de pratiquer. Vérifiez la stabilité du matériel utilisé (chaise, table, banc).</p>
+    <p>Vos données (prénom, séances, progression) restent uniquement sur cet appareil, dans votre navigateur. Elles ne sont envoyées nulle part.</p>
+    <p>Exercices et conseils inspirés des recommandations courantes en prévention des blessures du coureur.</p></div></details></div>`;
+  view.innerHTML = h; setSticky("");
+}
+
+/* ----- Onglet Séances ----- */
+const cDur = () => [20,30,40].includes(S.cDur) ? S.cDur : 30;
+function vHub(){
+  const ws = mixSel(), ps = protSel(), labels = [mixLabel(ws), mixLabel(ps, "protect")].filter(Boolean).join(" + ");
+  let h = `<h2>Séances</h2>
+    <div class="search" style="margin-top:12px">${SVG.search}<label class="sr" for="hubQ">Rechercher un exercice</label><input type="search" id="hubQ" placeholder="Rechercher : pompes, ventre, élastique…" autocomplete="off" enterkeyhint="search"></div>
+    <section style="margin-top:20px"><div class="sec-head"><h3>Séances prêtes</h3><button type="button" class="linkbtn" data-go="toutes">Toutes</button></div>
+      <div class="hscroll">${PROGRAMS.map((p,i) => `<button type="button" class="pcard${i % 3 === 1 ? " dark" : ""}" data-go="prog-${p.id}"><small>${progMinutes(p)} min</small><b>${p.name}</b><span>${progGear(p)}</span></button>`).join("")}</div></section>
+    <section style="margin-top:20px"><h3>En peu de temps</h3><div class="tiles3">
+      ${QUICK.filter(q => !q.hidden).map(q=>`<button type="button" class="ttile" data-go="prog-${q.id}"><b>${q.mins}</b><span>minutes</span><small>${q.tag}</small></button>`).join("")}</div></section>
+    <section class="card compose" style="margin-top:20px"><h3>Composer en un geste</h3>
+      <p class="lab" style="margin:0 0 8px">Je veux travailler…</p>
+      <div class="chips">${ZT.map(([id,l]) => `<button type="button" class="chip" data-act="zt" data-v="${id}" aria-pressed="${ws.includes(id)}">${l}</button>`).join("")}</div>
+      <p class="lab" style="margin:4px 0 8px">Je veux protéger…</p>
+      <div class="chips">${PT.map(([id,l]) => `<button type="button" class="chip" data-act="pt" data-v="${id}" aria-pressed="${ps.includes(id)}">${l}</button>`).join("")}</div>
+      <p class="lab" id="cdurL" style="margin:4px 0 8px">Temps que je veux y consacrer</p>
+      <div class="seg wide" role="group" aria-labelledby="cdurL">${[20,30,40].map(m => `<button type="button" data-act="cdur" data-v="${m}" aria-pressed="${cDur() === m}">${m} min</button>`).join("")}</div>
+      <button type="button" class="btn primary big" data-act="compose" style="margin-top:14px" ${labels ? "" : "disabled"}>${labels ? `Créer ma séance : ${labels}, ${cDur()} min` : "Choisissez au moins une partie"}</button></section>
+    <div class="stack" style="margin-top:16px">
+      ${S.items.length
+        ? `<button type="button" class="perso" data-go="ma-seance"><span><b>Ma séance personnelle</b><small>${plural(S.items.length,"exercice")}, environ ${estimate()} minutes</small></span><span class="go">Ouvrir</span></button>`
+        : `<button type="button" class="perso" data-go="composer"><span><b>Composer ma propre séance</b><small>Choisissez vos exercices un par un</small></span><span class="go">Créer</span></button>`}
+      <button type="button" class="perso solid" data-go="exercices"><span><b>Tous les exercices</b><small>Voir comment faire chaque mouvement</small></span><span class="go">›</span></button>
+    </div>
+    <details class="card how-d" style="margin-top:16px"><summary>Conseils du coureur</summary>
+      <h4>Quand faire ma séance&#8239;?</h4><ul class="avoid">
+        <li>Un jour sans course, ou juste après une sortie facile.</li>
+        <li>Jamais la veille d’une séance importante : fractionné, côtes ou sortie longue.</li>
+        <li>Si vous courez le même jour, laissez 5 à 6 heures entre les deux.</li>
+        <li>Deux séances de renforcement par semaine, plus 10 minutes « Mollets et pieds » 2 à 3 fois par semaine : c’est une bonne base.</li></ul>
+      <h4>Progresser sans se blesser</h4><ul class="avoid">
+        <li>Une gêne légère pendant l’exercice, qui disparaît dans les 24 heures, est acceptable.</li>
+        <li>Si une douleur augmente d’une séance à l’autre, persiste le lendemain matin ou change votre foulée, revenez au niveau précédent.</li>
+        <li>N’augmentez qu’une chose à la fois : la charge, le nombre de séries ou la lenteur de la descente.</li></ul>
+      <h4>Étirements</h4><ul class="avoid">
+        <li>Évitez d’étirer les mollets juste avant ou pendant une sortie.</li>
+        <li>Pour gagner en souplesse, préférez des étirements lents d’environ 30 secondes, à froid, le soir.</li></ul></details>`;
+  view.innerHTML = h; setSticky("");
+  const q = $("#hubQ");
+  q.addEventListener("keydown", e => { if (e.key === "Enter"){ F.q = q.value; go("exercices"); } });
+  q.addEventListener("change", () => { if (q.value.trim()){ F.q = q.value; go("exercices"); } });
+}
+
+/* ----- Onglet Progrès ----- */
+const DAYS_L = ["L","M","M","J","V","S","D"], DAYS_ICS = ["MO","TU","WE","TH","FR","SA","SU"];
+function vProgres(){
+  const st = streakInfo(), now = new Date(), y = now.getFullYear(), mo = now.getMonth(), today = dayNum(now);
+  const first = new Date(y, mo, 1), nDays = new Date(y, mo + 1, 0).getDate(), off = (first.getDay() + 6) % 7, hist = S.hist || [];
+  let cal = "";
+  for (let i = 0; i < off; i++) cal += `<span></span>`;
+  for (let d = 1; d <= nDays; d++){
+    const n = dayNum(new Date(y, mo, d)), done = hist.includes(n);
+    cal += `<span class="${done ? "on" : ""}${n === today ? " now" : ""}" aria-label="${d}${done ? ", séance faite" : ""}">${d}</span>`;
+  }
+  const got = unlocked(), rd = S.rDays || [], rt = S.rTime || "18:30";
+  let h = `<h2>Mes progrès</h2>
+    <div class="stats"><div><b>${S.done || 0}</b><small>séance${(S.done||0) > 1 ? "s" : ""}</small></div><div><b>${durTxt(minutesTotal())}</b><small>d’effort</small></div><div><b>${st.streak}</b><small>semaine${st.streak > 1 ? "s" : ""} d’affilée</small></div></div>
+    <section class="card" style="margin-top:16px"><div class="sec-head"><h3>${cap(now.toLocaleDateString("fr-FR",{month:"long", year:"numeric"}))}</h3><span class="muted small" style="font-weight:800">${st.jokerLeft ? "1 joker disponible ce mois-ci" : "Joker utilisé ce mois-ci"}</span></div>
+      <div class="calg head">${DAYS_L.map(d => `<span>${d}</span>`).join("")}</div><div class="calg">${cal}</div>
+      <p class="muted small" style="margin:10px 0 0">Le joker garde votre série intacte si une semaine ne se passe pas comme prévu, une fois par mois.</p></section>
+    <section class="card" style="margin-top:16px"><h3>Badges</h3><div class="badges">${BADGES.map(b => `<div class="badge-i${got.includes(b[0]) ? " on" : ""}"><span>${SVG.medal}</span><small>${b[1]}</small></div>`).join("")}</div></section>
+    <section class="card" id="rappels" style="margin-top:16px"><h3>Mes rappels</h3><p>Choisissez vos jours de renfo : l’outil crée un rappel dans l’agenda de votre téléphone.</p>
+      <div class="chips daysel">${DAYS_L.map((d,i) => `<button type="button" class="chip" data-act="rday" data-v="${i}" aria-pressed="${rd.includes(i)}" aria-label="${["Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"][i]}">${d}</button>`).join("")}</div>
+      <label for="rTime" class="lab" style="margin-top:10px">Heure</label><input type="time" id="rTime" class="field" value="${rt}" style="max-width:160px">
+      <div class="row" style="margin-top:12px"><button type="button" class="btn primary" data-act="ics" ${rd.length ? "" : "disabled"}>${SVG.cal}Ajouter à mon agenda</button></div>
+      <p class="muted small" style="margin:10px 0 0">Un fichier de rappel s’ouvre : validez-le dans votre agenda. Pour changer de jours, supprimez l’ancien rappel et recommencez.</p></section>
+    <section class="card" style="margin-top:16px"><h3>Mon objectif</h3><p style="margin:0">${plural(S.goal || 3, "séance")} par semaine. <button type="button" class="linkbtn" data-go="profil">Modifier</button></p></section>`;
+  view.innerHTML = h; setSticky("");
+  $("#rTime").addEventListener("change", e => { S.rTime = e.target.value || "18:30"; save(); });
+}
+function makeICS(days, time){
+  const pad = n => String(n).padStart(2,"0"), now = new Date(), [hh, mm] = (time || "18:30").split(":").map(Number);
+  const d = new Date(); d.setHours(hh, mm, 0, 0);
+  for (let i = 0; i < 8; i++){ if (days.includes((d.getDay() + 6) % 7) && d > now) break; d.setDate(d.getDate() + 1); d.setHours(hh, mm, 0, 0); }
+  const loc = x => `${x.getFullYear()}${pad(x.getMonth()+1)}${pad(x.getDate())}T${pad(x.getHours())}${pad(x.getMinutes())}00`;
+  const utc = x => `${x.getUTCFullYear()}${pad(x.getUTCMonth()+1)}${pad(x.getUTCDate())}T${pad(x.getUTCHours())}${pad(x.getUTCMinutes())}${pad(x.getUTCSeconds())}Z`;
+  const link = location.href.split("#")[0];
+  return ["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Regripp'Run Club//Ma seance//FR","CALSCALE:GREGORIAN","BEGIN:VEVENT",
+    `UID:rrc-seance-${Date.now()}@regripprun`, `DTSTAMP:${utc(now)}`, `DTSTART:${loc(d)}`, "DURATION:PT25M",
+    `RRULE:FREQ=WEEKLY;BYDAY=${days.slice().sort().map(i => DAYS_ICS[i]).join(",")}`,
+    "SUMMARY:Renfo Regripp’Run – Ma séance", `DESCRIPTION:Votre séance de renforcement vous attend : ${link}`, `URL:${link}`,
+    "BEGIN:VALARM","ACTION:DISPLAY","DESCRIPTION:Séance de renfo dans 10 minutes","TRIGGER:-PT10M","END:VALARM","END:VEVENT","END:VCALENDAR"].join("\r\n");
+}
+function downloadFile(name, content, type){
+  const url = URL.createObjectURL(new Blob([content], {type})); const a = document.createElement("a");
+  a.href = url; a.download = name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(url), 4000);
+}
+
+/* Image à partager après la séance */
+async function shareImage(info){
+  const W = 1080, H = 1920, c = document.createElement("canvas"); c.width = W; c.height = H; const g = c.getContext("2d");
+  try { await document.fonts.ready; } catch(e){}
+  g.fillStyle = "#546217"; g.fillRect(0, 0, W, H);
+  const logo = new Image(); logo.src = LOGO; try { await logo.decode(); g.drawImage(logo, 90, 110, 190, 190); } catch(e){}
+  const F = (w, s) => `${w} ${s}px Fredoka, "Arial Rounded MT Bold", Arial, sans-serif`;
+  g.fillStyle = "#FFF9EB"; g.font = F(600, 52); g.fillText("Regripp’Run Club", 310, 190); g.font = F(500, 42); g.fillText("Ma séance", 310, 250);
+  g.fillStyle = "#E8B53A"; g.font = F(700, 56); g.fillText(info.headline, 90, 640);
+  g.fillStyle = "#FFF9EB"; g.font = F(700, 300); g.fillText(String(info.min), 80, 960);
+  const w = g.measureText(String(info.min)).width; g.font = F(700, 110); g.fillText("min", 100 + w, 960);
+  let fs = 96; g.font = F(700, fs); while (g.measureText(info.name).width > 900 && fs > 52){ fs -= 4; g.font = F(700, fs); } let title = info.name; while (g.measureText(title).width > 900) title = title.slice(0, -2) + "…"; g.fillText(title, 90, 1110);
+  const pill = (t, x, y) => { g.font = F(700, 44); const tw = g.measureText(t).width; g.strokeStyle = "#FFF9EB"; g.lineWidth = 5; g.beginPath(); g.roundRect ? g.roundRect(x, y, tw + 60, 84, 42) : g.rect(x, y, tw + 60, 84); g.stroke(); g.fillText(t, x + 30, y + 57); return x + tw + 90; };
+  let x = pill(plural(info.count, "exercice"), 90, 1180); pill(`${info.week}e séance de la semaine`, 90, 1290);
+  if (info.streak > 1){ g.fillStyle = "#2C3410"; g.beginPath(); g.roundRect ? g.roundRect(90, 1440, 900, 170, 40) : g.rect(90, 1440, 900, 170); g.fill();
+    g.fillStyle = "#E8B53A"; g.font = F(700, 70); g.fillText(`${info.streak} semaines d’affilée`, 150, 1550); }
+  g.fillStyle = "#FFF9EB"; g.font = F(600, 40); g.fillText("Rejoins-nous pour ta prochaine séance !", 90, 1760);
+  const blob = await new Promise(r => c.toBlob(r, "image/png"));
+  const file = new File([blob], "ma-seance-regripprun.png", {type:"image/png"});
+  if (navigator.canShare && navigator.canShare({files:[file]})){
+    try { await navigator.share({files:[file], text:`J’ai fait ma séance « ${info.name} » avec l’outil du Regripp’Run Club !`}); return; } catch(e){ if (e && e.name === "AbortError") return; }
+  }
+  const url = URL.createObjectURL(blob);
+  const m = document.createElement("div"); m.className = "modal";
+  m.innerHTML = `<div class="modal-box" role="dialog" aria-modal="true" aria-label="Image à partager"><h3>Votre image est prête</h3><img src="${url}" alt="Image récapitulative de la séance" style="width:100%;border-radius:14px;margin-bottom:12px"><p>Enregistrez-la, puis envoyez-la dans le groupe du club.</p><div class="row"><a class="btn primary" href="${url}" download="ma-seance-regripprun.png">Enregistrer l’image</a><button type="button" class="btn" data-m="x">Fermer</button></div></div>`;
+  m.addEventListener("click", e => { if (e.target === m || e.target.closest('[data-m="x"]')){ e.stopPropagation(); m.remove(); URL.revokeObjectURL(url); } });
+  document.body.appendChild(m);
+}
+
+
 /* Séance mélangée à partir de plusieurs parties du corps */
 const MIX_FREE = ["Sans matériel","Mur","Chaise ou banc"];
 const DIFF_OK = [["Facile"],["Facile","Moyen"],["Facile","Moyen","Difficile"]];
@@ -3916,7 +4240,7 @@ function genProtect(zones, dur){
   const order = interleave(pools);
   let best = null;
   for (let c = Math.min(2, order.length); c <= Math.min(10, order.length); c++){
-    for (let extra = 0; extra <= 2; extra++){
+    for (let extra = 0; extra <= 3; extra++){
       const items = order.slice(0, c).map(e => { const it = newItem(e.id); it.sets = Math.min(it.sets, cap) + extra; return it; });
       const score = Math.abs(mixSecs(items, warm, false) - target) + extra * 45 + (c < 3 && order.length >= 3 ? 60 : 0);
       if (!best || score < best.score) best = {score, items};
@@ -3940,7 +4264,7 @@ function family(e){
 const mixSecs = (items, warm, cool) => buildSteps(items, warm, cool).reduce((t,st) => t + (st.type==="rest" ? st.dur : workSeconds(st)), 0);
 function genMix(zones, dur){
   const L = lvl(), strength = zones.filter(z => z !== "etirements"), stretch = zones.includes("etirements");
-  const warm = strength.length > 0 && dur >= 20, cool = strength.length > 0 && dur === 30 && !stretch, target = dur * 60;
+  const warm = strength.length > 0 && dur >= 20, cool = strength.length > 0 && dur >= 30 && !stretch, target = dur * 60;
   const mk = (e, sets, amount, rest) => ({uid:uid(), id:e.id, sets, amount, rest, kind:"t"});
   const stretches = shuffle(EX.filter(e => e.cat === "Étirements"));
   /* Exercices alternés entre les parties choisies */
@@ -3962,7 +4286,7 @@ function genMix(zones, dur){
   const work = strength.length ? [30,40,45][L] : 40, rest = strength.length ? [20,20,15][L] : 10;
   /* On cherche le nombre d’exercices et de tours qui colle le mieux à la durée choisie */
   let best = null;
-  for (let c = Math.min(3, list.length); c <= Math.min(10, list.length); c++){
+  for (let c = Math.min(3, list.length); c <= Math.min(12, list.length); c++){
     for (let r = 1; r <= 5; r++){
       const items = list.slice(0, c).map(e => mk(e, r, work, rest)).concat(tail);
       const score = Math.abs(mixSecs(items, warm, cool) - target) + (r === 1 && strength.length ? 90 : 0) + (r === 4 ? 50 : 0) + (r >= 5 ? 110 : 0) + (c < 4 && list.length >= 4 ? 60 : 0);
@@ -3971,17 +4295,25 @@ function genMix(zones, dur){
   }
   return best ? best.items : [];
 }
+function genCompose(work, prot, dur){
+  if (!prot.length) return genMix(work, dur);
+  if (!work.length) return genProtect(prot, dur);
+  const pd = Math.max(10, Math.round(dur * 0.4 / 5) * 5);
+  return [...genProtect(prot, pd), ...genMix(work, dur - pd - (dur >= 30 ? 3 : 0))];
+}
 function mixProg(){
   const m = S.mix; if (!m || !m.items || !m.items.length) return null;
+  if (m.kind === "combo") return {id:"mix", name:`Ma séance ${mixLabel(m.zones)} + ${mixLabel(m.pzones || [], "protect")}`,
+    desc:"Un mélange de vos parties à travailler et d’exercices de prévention, adapté à votre niveau.",
+    warm: m.dur >= 20, cool: m.dur >= 30 && !m.zones.includes("etirements"), build: () => m.items.map(it => ({...it, uid:uid()}))};
   if (m.kind === "protect") return {id:"mix", name:`Prévention : ${mixLabel(m.zones, "protect")}`,
     desc:"Des exercices de prévention choisis pour ces zones, à faire lentement et sans douleur. En cas de douleur qui persiste, consultez un professionnel de santé.",
     warm: m.dur >= 20, cool: false, build: () => m.items.map(it => ({...it, uid:uid()}))};
   const strength = m.zones.some(z => z !== "etirements");
   return {id:"mix", name:`Ma séance ${mixLabel(m.zones)}`, desc:"Des exercices tirés au hasard parmi vos choix, alternés et adaptés à votre niveau.",
-    warm: strength && m.dur >= 20, cool: strength && m.dur === 30 && !m.zones.includes("etirements"),
+    warm: strength && m.dur >= 20, cool: strength && m.dur >= 30 && !m.zones.includes("etirements"),
     build: () => m.items.map(it => ({...it, uid:uid()}))};
 }
-const LV_Q = [["Non, je débute ou je reprends","Des quantités douces pour démarrer en confiance."],["Oui, un peu","Une à deux fois par semaine."],["Oui, régulièrement","Trois fois ou plus par semaine."]];
 let installEvt = null;
 const IOS = /iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
 function installHowto(){
@@ -3996,121 +4328,6 @@ window.addEventListener("appinstalled", () => { installEvt = null; S.noInstall =
 if ("serviceWorker" in navigator && window.isSecureContext && window.top === window.self){
   window.addEventListener("load", () => { navigator.serviceWorker.register("sw.js").catch(() => {}); });
 }
-const isStandalone = () => matchMedia("(display-mode: standalone)").matches || navigator.standalone === true;
-
-/* Séances rapides, séance du jour et semaine */
-const PUSH_BY_LEVEL = ["pompesmur","pompesgenoux","pompes"];
-const timed = (ids, sets, amount, rest) => ids.map(id => ({uid:uid(), id, sets, amount, rest, kind:"t"}));
-const QUICK = [
-  {id:"q5", mins:5, tag:"Réveil", name:"Réveil musculaire", desc:"Cinq minutes pour réveiller tout le corps, sans matériel.", warm:false, cool:false,
-   build:()=>timed(["jj","squat","pont",PUSH_BY_LEVEL[lvl()],"planche","genoux"],1,30,15)},
-  {id:"q10", mins:10, tag:"Express", name:"Séance express", desc:"Dix minutes : deux tours de cinq exercices, sans matériel.", warm:false, cool:false,
-   build:()=>timed(["squat",PUSH_BY_LEVEL[lvl()],"pont","fentearr","planche"],2,35,15)},
-  {id:"q20", mins:20, tag:"Complète", name:"Séance complète", desc:"Vingt minutes pour travailler tout le corps, échauffement compris.", warm:true, cool:false,
-   build:()=>timed(["squat",PUSH_BY_LEVEL[lvl()],"fentearr","superman","pont","planche"],3,30,15)}
-];
-const ALLP = () => [...PROGRAMS, ...QUICK, ...(mixProg() ? [mixProg()] : [])];
-const findProg = id => ALLP().find(p => p.id === id);
-const progItems = p => p.build ? p.build() : p.items.map(id => { const it = newItem(id); it.sets = Math.min(it.sets, [2,2,3][lvl()]); return it; });
-const progWarm = p => p.warm ?? (S.warm && !p.calm);
-const progCool = p => p.cool ?? (S.cool && !p.calm);
-const progMinutes = p => estimate(progItems(p), progWarm(p), progCool(p));
-function progGear(p){
-  const g = new Set(); progItems(p).forEach(it => { const ex = BY_ID[it.id]; if (!ex.gear.some(x=>FREE.includes(x))) g.add(ex.gear[0]); });
-  return g.size ? `Matériel : ${[...g].join(", ").toLowerCase()}` : "Sans matériel";
-}
-const ROTA = [["debut","coureur","ventre","jambes","mollets","haut","etirements"],["coureur","jambes","trail","haut","cardio","dos","debut"],["trail","jambes","cardio","coureur","ventre","haut","dos"]];
-const dailyProg = () => findProg(ROTA[lvl()][dayNum() % 7]);
-function weekInfo(){
-  const t = new Date(), today = dayNum(t), dow = (t.getDay()+6) % 7, monday = today - dow, hist = S.hist || [];
-  const names = ["lundi","mardi","mercredi","jeudi","vendredi","samedi","dimanche"];
-  const days = ["L","M","M","J","V","S","D"].map((l,i)=>({l, full:names[i], done:hist.includes(monday+i), today:i===dow}));
-  return {days, count: hist.filter(n => n>=monday && n<monday+7).length, doneToday: hist.includes(today)};
-}
-
-function updateHeader(r){
-  const home = r === "accueil";
-  $(".top").classList.toggle("is-home", home);
-  $("#hT1").textContent = home ? (S.name ? `Bonjour ${S.name} !` : "Bonjour !") : "Regripp’Run Club";
-  $("#hT2").textContent = home ? cap(new Date().toLocaleDateString("fr-FR",{weekday:"long", day:"numeric", month:"long"})) : "Ma séance à la maison";
-  $("#profBtn").innerHTML = S.name ? esc(S.name.charAt(0).toUpperCase()) : SVG.person;
-  r === "profil" ? $("#profBtn").setAttribute("aria-current","page") : $("#profBtn").removeAttribute("aria-current");
-}
-
-function vAccueil(){
-  let h = `<div class="home">`;
-  if (S.level === null){
-    h += `<section class="card"><h3>Bienvenue au Regripp’Run Club !</h3><p>Deux petites questions pour adapter l’outil, et c’est parti.</p>
-      <label for="firstName" class="lab">Votre prénom <span class="muted" style="font-weight:600">(facultatif)</span></label>
-      <input id="firstName" class="field" autocomplete="given-name" maxlength="30" placeholder="Par exemple : Marie" value="${esc(S.name||"")}">
-      <p style="margin:18px 0 0;font-weight:800">Faites-vous du sport chaque semaine ?</p>
-      <div class="q-btns">${LV_Q.map(([a,b],i)=>`<button type="button" data-act="level" data-v="${i}">${a}<small>${b}</small></button>`).join("")}</div>
-      <p class="muted small" style="margin:12px 0 0">Tout reste sur votre téléphone. Vous pourrez modifier ces réponses dans votre profil.</p></section>`;
-  }
-  if (S.level !== null && !isStandalone() && !S.noInstall){
-    h += `<section class="tipbox"><b>Installez l’appli « Ma séance »</b><p>Elle s’ouvrira en plein écran depuis l’écran d’accueil, fonctionnera même sans connexion, et votre progression sera mieux conservée.</p>
-      <details><summary>Comment faire ?</summary>${installHowto()}</details>
-      <button type="button" class="linkbtn" data-act="noinstall">Ne plus afficher</button></section>`;
-  }
-  const w = weekInfo(), goal = S.goal || 3;
-  const msg = w.count >= goal ? "Objectif de la semaine atteint, bravo !" : w.count === 0 ? "Une nouvelle semaine commence : à vous de jouer !" : `Plus que ${plural(goal-w.count,"séance")} pour atteindre votre objectif.`;
-  h += `<section class="card"><div class="week-head"><h3>Ma semaine</h3><span>${w.count} ${w.count>1?"séances":"séance"} sur ${goal}</span></div>
-    <ol class="days">${w.days.map(d=>`<li class="${d.done?"done":""}${d.today?" today":""}"><span aria-hidden="true">${d.l}</span><span class="dot">${d.done?SVG.check:""}<span class="sr">${d.full} : ${d.done?"séance faite":"pas de séance"}${d.today?", aujourd’hui":""}</span></span></li>`).join("")}</ol>
-    <div class="wbar"><i style="width:${Math.min(100, Math.round(w.count/goal*100))}%"></i></div><p class="wmsg">${msg}</p></section>`;
-  if (w.doneToday){
-    h += `<section class="hero">${SVG.fig}<span class="pill">Séance du jour</span><h2>C’est fait pour aujourd’hui, bravo !</h2>
-      <p>Reposez-vous ou étirez-vous. Une nouvelle séance vous attend demain.</p>
-      <div class="row"><button type="button" class="btn" data-go="prog-etirements">Étirements</button><button type="button" class="btn ghost" data-go="seances">Une autre séance</button></div></section>`;
-  } else {
-    const p = dailyProg();
-    h += `<section class="hero">${SVG.fig}<span class="pill">Séance du jour</span><h2>${p.name}</h2><p>${p.desc}</p>
-      <div class="hchips"><span>${SVG.clock}${progMinutes(p)} min</span><span>${progGear(p)}</span><span>${plural(progItems(p).length,"exercice")}</span></div>
-      <button type="button" class="btn big start" data-act="prog-start" data-v="${p.id}">${SVG.play}Commencer</button>
-      <div class="hlinks"><button type="button" class="hlink" data-go="prog-${p.id}">Voir les exercices</button><button type="button" class="hlink" data-go="seances">Autre séance</button></div></section>`;
-  }
-  h += `<section><h3 class="sec">Combien de temps avez-vous&#8239;?</h3><div class="tiles3">
-    ${QUICK.map(q=>`<button type="button" class="ttile" data-go="prog-${q.id}"><b>${q.mins}</b><span>minutes</span><small>${q.tag}</small></button>`).join("")}</div></section>
-    <section><h3 class="sec">Je veux travailler…</h3><p class="muted small" style="margin:-6px 0 12px">Choisissez une ou plusieurs parties : l’outil compose une séance qui mélange les exercices.</p>
-    <div class="ztiles">${ZT.map(([id,l,ic])=>`<button type="button" class="ztile" data-act="zt" data-v="${id}" aria-pressed="${mixSel().includes(id)}"><span class="zi"><svg viewBox="0 0 24 24" aria-hidden="true">${ic}</svg></span>${l}</button>`).join("")}</div>
-    ${mixSel().length ? `<div class="mixbar"><p class="mixsum"><b>${mixLabel(mixSel())}</b></p>
-      <div class="mixdur"><span id="durLbl">Durée</span><div class="seg" role="group" aria-labelledby="durLbl">${[10,20,30].map(d=>`<button type="button" data-act="mixdur" data-v="${d}" aria-pressed="${mixDur()===d}">${d} min</button>`).join("")}</div></div>
-      <button type="button" class="btn primary big" data-act="mix">Créer ma séance</button></div>` : ""}</section>
-    <section><h3 class="sec">Je veux protéger…</h3><p class="muted small" style="margin:-6px 0 12px">Des exercices de prévention pour vos zones sensibles de coureur. Plusieurs choix possibles.</p>
-    <div class="ztiles">${PT.map(([id,l,ic])=>`<button type="button" class="ztile" data-act="pt" data-v="${id}" aria-pressed="${protSel().includes(id)}"><span class="zi"><svg viewBox="0 0 24 24" aria-hidden="true">${ic}</svg></span>${l}</button>`).join("")}</div>
-    ${protSel().length ? `<div class="mixbar"><p class="mixsum"><b>${mixLabel(protSel(), "protect")}</b></p>
-      <div class="mixdur"><span id="durLbl2">Durée</span><div class="seg" role="group" aria-labelledby="durLbl2">${[10,20,30].map(d=>`<button type="button" data-act="ptdur" data-v="${d}" aria-pressed="${protDur()===d}">${d} min</button>`).join("")}</div></div>
-      <button type="button" class="btn primary big" data-act="protect">Créer ma séance de prévention</button></div>` : ""}</section>`;
-  h += S.items.length
-    ? `<button type="button" class="perso" data-go="ma-seance"><span><b>Ma séance personnelle</b><small>${plural(S.items.length,"exercice")}, environ ${estimate()} minutes</small></span><span class="go">Ouvrir</span></button>`
-    : `<button type="button" class="perso" data-go="composer"><span><b>Composer ma propre séance</b><small>Choisissez vos exercices un par un</small></span><span class="go">Créer</span></button>`;
-  h += `<details class="card how-d"><summary>Comment ça marche&#8239;?</summary><ol class="how" style="margin-top:12px">
-      <li><span>Lancez la séance du jour, ou choisissez une durée ou une partie du corps.</span></li>
-      <li><span>L’outil vous guide exercice par exercice, avec un personnage animé à imiter.</span></li>
-      <li><span>Laissez-vous guider par les pauses chronométrées et les signaux sonores. Chaque séance terminée coche un jour de votre semaine.</span></li></ol></details>
-    <details class="card how-d"><summary>Conseils du coureur</summary>
-      <h4>Quand faire ma séance&#8239;?</h4><ul class="avoid">
-        <li>Un jour sans course, ou juste après une sortie facile.</li>
-        <li>Jamais la veille d’une séance importante : fractionné, côtes ou sortie longue.</li>
-        <li>Si vous courez le même jour, laissez 5 à 6 heures entre les deux.</li>
-        <li>Deux séances de renforcement par semaine, plus 10 minutes « Mollets et pieds » 2 à 3 fois par semaine : c’est une bonne base.</li></ul>
-      <button type="button" class="btn small" data-go="prog-mollets">Voir la séance Mollets et pieds</button>
-      <h4>Progresser sans se blesser</h4><ul class="avoid">
-        <li>Une gêne légère pendant l’exercice, qui disparaît dans les 24 heures, est acceptable.</li>
-        <li>Si une douleur augmente d’une séance à l’autre, persiste le lendemain matin ou change votre foulée, revenez au niveau précédent.</li>
-        <li>N’augmentez qu’une chose à la fois : la charge, le nombre de séries ou la lenteur de la descente.</li>
-        <li>Pour le trail, ralentissez la descente des squats et des fentes, 3 à 4 secondes : c’est elle qui prépare aux descentes.</li></ul>
-      <h4>Étirements</h4><ul class="avoid">
-        <li>Évitez d’étirer les mollets juste avant ou pendant une sortie.</li>
-        <li>Pour gagner en souplesse, préférez des étirements lents d’environ 30 secondes, à froid, le soir.</li></ul>
-      <p class="muted small" style="margin:8px 0 0">Conseils inspirés des recommandations courantes en prévention des blessures du coureur. Ils ne remplacent pas un bilan avec un professionnel de santé.</p></details>
-    <button type="button" class="perso" data-go="profil"><span><b>Changer de téléphone&#8239;?</b><small>Sauvegardez votre progression avec un lien ou un QR code</small></span><span class="go">Sauvegarder</span></button>
-    <footer class="legal"><p><strong>À lire avant de commencer.</strong> Les exercices, démonstrations et quantités proposés sont des conseils généraux. Ils ne remplacent pas l’avis d’un médecin, d’un kinésithérapeute ou d’un coach diplômé.</p>
-    <p>Échauffez-vous avant chaque séance, adaptez l’effort à votre forme et arrêtez immédiatement en cas de douleur, de vertige ou d’essoufflement inhabituel. En cas de problème de santé, de blessure ou de reprise après une longue pause, demandez un avis médical avant de pratiquer. Vérifiez la stabilité du matériel utilisé (chaise, table, banc).</p>
-    <p>Vos données (prénom, séances, progression) restent uniquement sur cet appareil, dans votre navigateur. Elles ne sont envoyées nulle part.</p><p>Exercices et conseils inspirés des recommandations courantes en prévention des blessures du coureur.</p></footer></div>`;
-  view.innerHTML = h; setSticky("");
-  const fn = $("#firstName"); if (fn) fn.addEventListener("input", ()=>{ S.name = fn.value.trim().slice(0,30); save(); });
-}
-
 /* ----- Profil et sauvegarde ----- */
 function pack(){
   const o = {v:1, n:S.name||"", l:S.level, g:S.goal||3, w:S.warm?1:0, c:S.cool?1:0, d:S.done||0, h:(S.hist||[]).slice(-120),
@@ -4184,7 +4401,7 @@ function vRestore(code){
 
 /* ----- Séances prêtes ----- */
 function vSeances(){
-  let h = `<button type="button" class="back" data-go="accueil">‹ Accueil</button><h2>Séances toutes prêtes</h2>
+  let h = `<button type="button" class="back" data-go="seances">‹ Séances</button><h2>Séances toutes prêtes</h2>
     <p style="margin-top:8px">Choisissez une séance. Ensuite, l’outil vous guide exercice par exercice, avec les pauses.</p><div class="stack">`;
   PROGRAMS.forEach(p => {
     h += `<button type="button" class="prog" data-go="prog-${p.id}"><b>${p.name}</b><p>${p.desc}</p>
@@ -4195,7 +4412,7 @@ function vSeances(){
 function vProg(id){
   const p = findProg(id); if (!p) return go("seances");
   const items = progItems(p);
-  let h = `<button type="button" class="back" data-go="${p.build ? "accueil" : "seances"}">‹ ${p.build ? "Accueil" : "Toutes les séances"}</button><h2>${p.name}</h2>
+  let h = `<button type="button" class="back" data-go="${p.build ? "seances" : "toutes"}">‹ ${p.build ? "Séances" : "Toutes les séances"}</button><h2>${p.name}</h2>
     <p style="margin-top:8px">${p.desc}</p><p class="row"><span class="tag">Environ ${progMinutes(p)} min</span><span class="tag">${progGear(p)}</span></p>
     ${p.id === "mix" ? `<p><button type="button" class="btn small" data-act="remix">Mélanger d’autres exercices</button></p>` : ""}
     <section class="card"><h3>Au programme</h3><ul class="plist">`;
@@ -4222,7 +4439,7 @@ function matches(e){
 }
 const nbFilters = () => F.zones.size + F.gear.size;
 function vExercices(){
-  let h = `<h2>Exercices</h2>`;
+  let h = `<button type="button" class="back" data-go="seances">‹ Séances</button><h2>Exercices</h2>`;
   if (compose) h += `<p class="hint">Touchez « Ajouter » sur chaque exercice qui vous intéresse. Ensuite, ouvrez « Ma séance » en bas de l’écran pour commencer.</p>`;
   h += `<div class="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><line x1="15.5" y1="15.5" x2="21" y2="21"/></svg>
     <label class="sr" for="q">Rechercher un exercice</label><input type="search" id="q" placeholder="Rechercher : pompes, ventre, élastique…" autocomplete="off" value=""></div>
@@ -4303,12 +4520,12 @@ function stepper(label, field, valText, u){
 }
 function vSeance(){
   if (!S.items.length){
-    view.innerHTML = `<h2>Ma séance</h2><section class="card empty" style="margin-top:16px"><h3>Votre séance est vide</h3>
+    view.innerHTML = `<button type="button" class="back" data-go="seances">‹ Séances</button><h2>Ma séance</h2><section class="card empty" style="margin-top:16px"><h3>Votre séance est vide</h3>
       <p>Le plus simple est de choisir une séance toute prête. Vous pouvez aussi ajouter des exercices un par un.</p>
       <div class="row"><button type="button" class="btn primary" data-go="seances">Choisir une séance prête</button><button type="button" class="btn" data-go="composer">Ajouter des exercices</button></div></section>`;
     setSticky(""); return;
   }
-  let h = `<h2>Ma séance</h2><p class="summary" style="margin-top:8px"><span class="disp">Environ ${estimate()} min</span><span class="muted">${plural(S.items.length,"exercice")}</span></p>
+  let h = `<button type="button" class="back" data-go="seances">‹ Séances</button><h2>Ma séance</h2><p class="summary" style="margin-top:8px"><span class="disp">Environ ${estimate()} min</span><span class="muted">${plural(S.items.length,"exercice")}</span></p>
     <section class="card" style="padding:4px 16px">
       <label class="switch"><span>Échauffement au début<small>2 minutes pour préparer le corps</small></span><input type="checkbox" data-act="warm" ${S.warm?"checked":""}></label>
       <label class="switch" style="border:0"><span>Étirements à la fin<small>2 minutes pour récupérer</small></span><input type="checkbox" data-act="cool" ${S.cool?"checked":""}></label>
@@ -4368,7 +4585,9 @@ function route(){
   if (PL.open){ closePlayer(); }
   toastEl.hidden = true;
   if (r === "exercices" || r === "composer"){ compose = r==="composer"; lastList = r; vExercices(); }
-  else if (r === "seances") vSeances();
+  else if (r === "seances") vHub();
+  else if (r === "toutes") vSeances();
+  else if (r === "progres") vProgres();
   else if (r.startsWith("prog-")) vProg(r.slice(5));
   else if (r.startsWith("ex-")) vFiche(r.slice(3));
   else if (r === "ma-seance"){ lastList = "ma-seance"; vSeance(); }
@@ -4405,7 +4624,7 @@ function refresh(){
   const r = location.hash.slice(1) || "accueil", y = window.scrollY;
   if (r==="exercices" || r==="composer"){ renderResults(); setSticky(compose && S.items.length ? `<button type="button" class="btn primary big" data-go="ma-seance">Voir ma séance (${plural(S.items.length,"exercice")})</button>` : ""); }
   else if (r.startsWith("ex-")){ const t = ficheFig ? ficheFig.time : 0; vFiche(r.slice(3)); if (ficheFig) ficheFig.time = t; }
-  else { const rt = r==="ma-seance" ? vSeance : r==="seances" ? vSeances : r.startsWith("prog-") ? ()=>vProg(r.slice(5)) : r==="profil" ? vProfil : vAccueil; rt(); }
+  else { const rt = r==="ma-seance" ? vSeance : r==="seances" ? vHub : r==="toutes" ? vSeances : r==="progres" ? vProgres : r.startsWith("prog-") ? ()=>vProg(r.slice(5)) : r==="profil" ? vProfil : vAccueil; rt(); }
   updateNav(r); updateHeader(r); window.scrollTo(0,y);
 }
 function setLevel(n){
@@ -4422,15 +4641,22 @@ document.addEventListener("click", ev => {
   const act = a.dataset.act, v = a.dataset.v, u = a.dataset.u, it = S.items.find(i=>i.uid===u);
   switch(act){
     case "level": { const fn = $("#firstName"); if (fn) S.name = fn.value.trim().slice(0,30); setLevel(+v); break; }
-    case "start": startSession(); break;
-    case "prog-start": { const p = findProg(v); if (p) startSession(progItems(p), progWarm(p), progCool(p)); break; }
+    case "start": startSession(S.items, S.warm, S.cool, "Ma séance personnelle"); break;
+    case "ddur": S.dailyDur = +v; save(); refresh(); break;
+    case "cdur": S.cDur = +v; save(); refresh(); break;
+    case "compose": { const ws = mixSel(), ps = protSel(); if (!ws.length && !ps.length) break;
+      const kind = ws.length && ps.length ? "combo" : ps.length ? "protect" : "work";
+      S.mix = {kind, zones: kind === "protect" ? ps : ws, pzones: ps, dur: cDur(), items: genCompose(ws, ps, cDur())}; save(); go("prog-mix"); break; }
+    case "rday": { const d = +v, set = new Set(S.rDays || []); set.has(d) ? set.delete(d) : set.add(d); S.rDays = [...set].sort(); save(); refresh(); break; }
+    case "ics": if ((S.rDays || []).length){ downloadFile("rappels-renfo.ics", makeICS(S.rDays, S.rTime), "text/calendar"); toast("Ouvrez le fichier téléchargé pour ajouter le rappel à votre agenda."); } break;
+    case "prog-start": { const p = findProg(v); if (p) startSession(progItems(p), progWarm(p), progCool(p), p.name); break; }
     case "noinstall": S.noInstall = true; save(); refresh(); break;
     case "install": if (installEvt){ const ev = installEvt; installEvt = null; ev.prompt(); ev.userChoice.then(() => { if (!PL.open && !OB.open) refresh(); }).catch(() => {}); } break;
     case "g-test": say("Bonjour ! Je vous guiderai pendant la séance : descendez, deux, trois, quatre, remontez.", true, true); break;
     case "zt": { const sel = new Set(mixSel()); sel.has(v) ? sel.delete(v) : sel.add(v); S.mixSel = ZT.map(t => t[0]).filter(z => sel.has(z)); save(); refresh(); break; }
     case "mixdur": S.mixDur = +v; save(); refresh(); break;
     case "mix": { const zones = mixSel(); if (!zones.length) break; S.mix = {kind:"work", zones, dur:mixDur(), items:genMix(zones, mixDur())}; save(); go("prog-mix"); break; }
-    case "remix": if (S.mix){ S.mix.items = S.mix.kind === "protect" ? genProtect(S.mix.zones, S.mix.dur) : genMix(S.mix.zones, S.mix.dur); save(); vProg("mix"); toast("Nouveaux exercices tirés au hasard."); } break;
+    case "remix": if (S.mix){ S.mix.items = S.mix.kind === "combo" ? genCompose(S.mix.zones, S.mix.pzones || [], S.mix.dur) : S.mix.kind === "protect" ? genProtect(S.mix.zones, S.mix.dur) : genMix(S.mix.zones, S.mix.dur); save(); vProg("mix"); toast("Nouveaux exercices tirés au hasard."); } break;
     case "pt": { const sel = new Set(protSel()); sel.has(v) ? sel.delete(v) : sel.add(v); S.protSel = PT.map(t => t[0]).filter(z => sel.has(z)); save(); refresh(); break; }
     case "ptdur": S.protDur = +v; save(); refresh(); break;
     case "protect": { const zones = protSel(); if (!zones.length) break; S.mix = {kind:"protect", zones, dur:protDur(), items:genProtect(zones, protDur())}; save(); go("prog-mix"); break; }
@@ -4557,11 +4783,11 @@ function rhythmPlan(ex, amount, side){
   return ev;
 }
 
-function startSession(items = S.items, warm = S.warm, cool = S.cool){
+function startSession(items = S.items, warm = S.warm, cool = S.cool, name = "Ma séance"){
   if (!items.length) return go("seances");
   audioUnlock(); wake();
   if (guide().voice) say("C’est parti pour la séance.", true);
-  PL.back = (location.hash.slice(1) || "accueil").replace(/^go$/,"accueil"); PL.steps = buildSteps(items, warm, cool); PL.count = items.length; PL.i = 0; PL.t0 = Date.now(); PL.open = true;
+  PL.back = (location.hash.slice(1) || "accueil").replace(/^go$/,"accueil"); PL.steps = buildSteps(items, warm, cool); PL.count = items.length; PL.name = name; PL.i = 0; PL.t0 = Date.now(); PL.open = true;
   player.hidden = false; document.body.style.overflow = "hidden";
   player.innerHTML = `<div class="p-top"><button type="button" class="btn small ghost" data-act="p-quit">Quitter</button>
     <div class="grow"><div class="lbl" id="pLbl"></div><div class="bar"><i id="pBar"></i></div></div>
@@ -4694,19 +4920,26 @@ function setPaused(on, btn){
 }
 function renderEnd(){
   PL.mode = "end"; player.classList.remove("rest");
+  const before = unlocked();
   const min = Math.max(1, Math.round((Date.now()-PL.t0)/60000));
-  S.done = (S.done||0) + 1; S.last = Date.now(); S.hist = [...(S.hist||[]), dayNum()].slice(-400); save();
-  const w = weekInfo(), goal = S.goal || 3;
-  const weekMsg = w.count >= goal ? `Objectif de la semaine atteint : ${plural(w.count,"séance")} sur ${goal} !` : `${plural(w.count,"séance")} sur ${goal} cette semaine. Continuez comme ça !`;
+  S.done = (S.done||0) + 1; S.last = Date.now(); S.hist = [...(S.hist||[]), dayNum()].slice(-400);
+  S.log = [...(S.log||[]), {d: dayNum(), m: min, n: PL.name}].slice(-400); save();
+  const w = weekInfo(), goal = S.goal || 3, st = streakInfo(), after = unlocked();
+  const fresh = BADGES.filter(b => after.includes(b[0]) && !before.includes(b[0]));
+  const nth = w.count === 1 ? "1re" : `${w.count}e`;
+  const weekMsg = w.count >= goal ? `Objectif de la semaine atteint : ${plural(w.count,"séance")} sur ${goal} !` : `Plus que ${plural(goal - w.count,"séance")} pour atteindre votre objectif de la semaine.`;
+  PL.shareInfo = {headline: S.name ? `${S.name} a fait sa séance !` : "Séance terminée !", min, name: PL.name, count: PL.count, week: w.count, streak: st.streak};
   $("#pLbl").textContent = "Séance terminée"; $("#pBar").style.width = "100%";
-  $("#pBody").innerHTML = `<div class="p-end"><img src="${LOGO}" alt=""><h2>Bravo, séance terminée !</h2>
-    <p>${plural(PL.count,"exercice")} en ${plural(min,"minute")}.</p><p style="font-weight:800;color:var(--lane)">${weekMsg}</p>
+  $("#pBody").innerHTML = `<div class="p-end"><img src="${LOGO}" alt=""><h2>Bravo${S.name ? " " + esc(S.name) : ""}, séance terminée&#8239;!</h2>
+    <div class="estats"><div><b>${min}</b><small>minute${min > 1 ? "s" : ""}</small></div><div><b>${PL.count}</b><small>exercice${PL.count > 1 ? "s" : ""}</small></div><div><b>${nth}</b><small>séance de la semaine</small></div></div>
+    ${fresh.map(b => `<div class="newbadge"><span>${SVG.medal}</span><div><small>Nouveau badge</small><b>${b[1]}</b></div></div>`).join("")}
+    <p style="font-weight:800;color:var(--lane)">${weekMsg}${st.streak > 1 ? ` Série en cours : ${st.streak} semaines d’affilée.` : ""}</p>
     <div class="feel"><p style="font-weight:800;margin:14px 0 8px">Comment vous sentez-vous&#8239;?</p>
       <div class="row" style="justify-content:center"><button type="button" class="btn small" data-act="feel" data-v="0">Bien</button><button type="button" class="btn small" data-act="feel" data-v="1">Une gêne légère</button><button type="button" class="btn small" data-act="feel" data-v="2">Une douleur</button></div>
       <p id="feelMsg" class="feelmsg" aria-live="polite"></p></div>
-    <p class="muted">Buvez un verre d’eau et notez comment vous vous sentez. À la prochaine sortie du club !</p>
-    <button type="button" class="btn primary big" data-act="p-close">Retour à l’accueil</button></div>`;
-  say("Bravo, séance terminée !");
+    <div class="p-actions" style="margin-top:16px"><button type="button" class="btn primary big" data-act="share-img">${SVG.share}Partager dans le groupe du club</button>
+      <div class="row" style="justify-content:center"><button type="button" class="btn" data-act="go-rappels">${SVG.cal}Mes rappels</button><button type="button" class="btn ghost" data-act="p-close">Terminer</button></div></div></div>`;
+  say(fresh.length ? `Bravo, séance terminée ! Nouveau badge : ${fresh[0][1]}.` : "Bravo, séance terminée !");
   beep(784,.2); setTimeout(()=>beep(988,.2),220); setTimeout(()=>beep(1175,.35),440);
 }
 function playerAction(act, a){
@@ -4718,6 +4951,8 @@ function playerAction(act, a){
       askQuit().then(ok => { if (ok && PL.open){ const back = PL.back; closePlayer(); go(back); } });
       break;
     case "p-close": closePlayer(); go("accueil"); break;
+    case "share-img": if (PL.shareInfo) shareImage(PL.shareInfo).catch(() => toast("Le partage n’a pas fonctionné sur cet appareil.")); break;
+    case "go-rappels": closePlayer(); go("progres"); setTimeout(() => { const r = $("#rappels"); if (r) r.scrollIntoView({behavior: reduceMotion ? "auto" : "smooth"}); }, 150); break;
     case "p-next": next(); break;
     case "p-more": PL.end += 15000; if (Math.ceil((PL.end - Date.now())/1000) > 10) PL.ten = false; tick(); break;
     case "p-pause": setPaused(!PL.paused, a); break;
@@ -4758,7 +4993,7 @@ const OB_ICONS = {
   home:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg>',
   shield:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/></svg>'
 };
-function firstProg(){ const p = dailyProg(); return ["etirements","mollets"].includes(p.id) ? findProg("debut") : p; }
+function firstProg(){ const p = jourProg(); return ["etirements","mollets"].includes(p.base) ? findProg("debut") : p; }
 function openOnb(step = 0){
   OB.open = true; OB.step = step;
   let el = $("#onb");
@@ -4847,7 +5082,7 @@ function onbAction(act, a){
       if (v === "none"){ const on = !F.gear.has("none"); F.gear.clear(); if (on) F.gear.add("none"); }
       else { F.gear.delete("none"); F.gear.has(v) ? F.gear.delete(v) : F.gear.add(v); }
       S.owned = [...F.gear]; save(); renderOnb(); return true;
-    case "onb-first": { const p = firstProg(); closeOnb(); route(); startSession(progItems(p), progWarm(p), progCool(p)); return true; }
+    case "onb-first": { const p = firstProg(); closeOnb(); route(); startSession(progItems(p), progWarm(p), progCool(p), p.name); return true; }
     case "onb-home": closeOnb(); route(); window.scrollTo(0,0); return true;
   }
   return false;
